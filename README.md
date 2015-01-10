@@ -5,11 +5,11 @@ This source documentation for the register maps came from the [STM32F429/439 ref
 
 This repository, only contains data for registers relevant to the STM32F42xxx and the STM32F43xxx MCUs.
 
-I wrote a program that allows one to cut and past text from the .pdf file and generate this XML, with some manual tweeking.  A version of that program is published at https://github.com/JinShil/stm32_datasheet_to_d.
+I wrote a program that allows one to cut and paste text from the .pdf file and generate this XML, with some manual tweeking.  A version of that program is published at https://github.com/JinShil/stm32_datasheet_to_d.
 
 Status
 ------
-None of this data has yet been tested or verified for accuracy.  I hope that will change soon after I generate some code from this data and run a test the resulting software.
+None of this data has yet been tested or verified for accuracy.  I hope that will change soon after I generate some code from this data and run a test from the resulting software.
 
 Licensing
 ---------
