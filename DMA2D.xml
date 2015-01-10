@@ -18,7 +18,7 @@
 <Peripheral>
   <Name>DMA2D</Name>
   <Description>Chrom-Art Accelerator™ controller</Description>
-  <Offset>0x00000040</Offset>
+  <Offset>0x00009000</Offset>
   <Registers>
     <Register>
       <Name>CR</Name>
