@@ -1,0 +1,3508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright © 2015 Michael V. Franklin
+     
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this file.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<Peripheral>
+  <Name>RCC</Name>
+  <Description>Reset and clock control</Description>
+  <Offset>0x00003800</Offset>
+  <Registers>
+    <Register>
+      <Name>CR</Name>
+      <Description>RCC clock control register</Description>
+      <Offset>0x00</Offset>
+      <ResetValue>0x0000XX83</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PLLSAIRDY</Name>
+          <Description>PLLSAI clock ready flag 
+Set by hardware to indicate that the PLLSAI is locked.
+0: PLLSAI unlocked
+1: PLLSAI locked</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLISAION</Name>
+          <Description>PLLSAI enable 
+Set and cleared by software to enable PLLSAI.
+Cleared by hardware when entering Stop or Standby mode.
+0: PLLSAI OFF
+1: PLLSAI ON</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SRDY</Name>
+          <Description>PLLI2S clock ready flag 
+Set by hardware to indicate that the PLLI2S is locked.
+0: PLLI2S unlocked
+1: PLLI2S locked</Description>
+          <EndBit>27</EndBit>
+          <StartBit>27</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SON</Name>
+          <Description>PLLI2S enable 
+Set and cleared by software to enable PLLI2S.
+Cleared by hardware when entering Stop or Standby mode.
+0: PLLI2S OFF
+1: PLLI2S ON</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLRDY</Name>
+          <Description>Main PLL (PLL) clock ready flag 
+Set by hardware to indicate that PLL is locked.
+0: PLL unlocked
+1: PLL locked</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLON</Name>
+          <Description>Main PLL (PLL) enable 
+Set and cleared by software to enable PLL.
+Cleared by hardware when entering Stop or Standby mode. This bit cannot be reset if PLL
+clock is used as the system clock.
+0: PLL OFF
+1: PLL ON</Description>
+          <EndBit>24</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CSSON</Name>
+          <Description>Clock security system enable 
+Set and cleared by software to enable the clock security system. When CSSON is set, the
+clock detector is enabled by hardware when the HSE oscillator is ready, and disabled by
+hardware if an oscillator failure is detected.
+0: Clock security system OFF (Clock detector OFF)
+1: Clock security system ON (Clock detector ON if HSE oscillator is stable, OFF if not)</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSEBYP</Name>
+          <Description>HSE clock bypass 
+Set and cleared by software to bypass the oscillator with an external clock. The external
+clock must be enabled with the HSEON bit, to be used by the device.
+The HSEBYP bit can be written only if the HSE oscillator is disabled.
+0: HSE oscillator not bypassed
+1: HSE oscillator bypassed with an external clock</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSERDY</Name>
+          <Description>HSE clock ready flag 
+Set by hardware to indicate that the HSE oscillator is stable. After the HSEON bit is cleared,
+HSERDY goes low after 6 HSE oscillator clock cycles.
+0: HSE oscillator not ready
+1: HSE oscillator ready</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSEON</Name>
+          <Description>HSE clock enable 
+Set and cleared by software.
+Cleared by hardware to stop the HSE oscillator when entering Stop or Standby mode. This
+bit cannot be reset if the HSE oscillator is used directly or indirectly as the system clock.
+0: HSE oscillator OFF
+1: HSE oscillator ON</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSICAL[7:0]</Name>
+          <Description>Internal high-speed clock calibration 
+These bits are initialized automatically at startup.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSITRIM[4:0]</Name>
+          <Description>Internal high-speed clock trimming 
+These bits provide an additional user-programmable trimming value that is added to the
+HSICAL[7:0] bits. It can be programmed to adjust to variations in voltage and temperature
+that influence the frequency of the internal HSI RC.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSIRDY</Name>
+          <Description>Internal high-speed clock ready flag 
+Set by hardware to indicate that the HSI oscillator is stable. After the HSION bit is cleared,
+HSIRDY goes low after 6 HSI clock cycles.
+0: HSI oscillator not ready
+1: HSI oscillator ready</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSION</Name>
+          <Description>Internal high-speed clock enable 
+Set and cleared by software.
+Set by hardware to force the HSI oscillator ON when leaving the Stop or Standby mode or in
+case of a failure of the HSE oscillator used directly or indirectly as the system clock. This bit
+cannot be cleared if the HSI is used directly or indirectly as the system clock.
+0: HSI oscillator OFF
+1: HSI oscillator ON</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>PLLCFGR</Name>
+      <Description>RCC PLL configuration register
+This register is used to configure the PLL clock outputs according to the formulas:
+• f(VCO clock) = f(PLL clock input) × (PLLN / PLLM)
+• f(PLL general clock output) = f(VCO clock) / PLLP
+• f(USB OTG FS, SDIO, RNG clock output) = f(VCO clock) / PLLQ</Description>
+      <Offset>0x04</Offset>
+      <ResetValue>0x24003010</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PLLQ</Name>
+          <Description>Main PLL (PLL) division factor for USB OTG FS, SDIO and random number generator 
+clocks
+Set and cleared by software to control the frequency of USB OTG FS clock, the random
+number generator clock and the SDIO clock. These bits should be written only if PLL is
+disabled.
+Caution: The USB OTG FS requires a 48 MHz clock to work correctly. The SDIO and the
+random number generator need a frequency lower than or equal to 48 MHz to work
+correctly.
+USB OTG FS clock frequency = VCO frequency / PLLQ with 2 ≤ PLLQ ≤ 15
+0000: PLLQ = 0, wrong configuration
+0001: PLLQ = 1, wrong configuration
+0010: PLLQ = 2
+0011: PLLQ = 3
+0100: PLLQ = 4
+...
+1111: PLLQ = 15</Description>
+          <EndBit>27</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSRC</Name>
+          <Description>Main PLL(PLL) and audio PLL (PLLI2S) entry clock source 
+Set and cleared by software to select PLL and PLLI2S clock source. This bit can be written
+only when PLL and PLLI2S are disabled.
+0: HSI clock selected as PLL and PLLI2S clock entry
+1: HSE oscillator clock selected as PLL and PLLI2S clock entry</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLP</Name>
+          <Description>Main PLL (PLL) division factor for main system clock 
+Set and cleared by software to control the frequency of the general PLL output clock. These
+bits can be written only if PLL is disabled.
+Caution: The software has to set these bits correctly not to exceed 180 MHz on this domain.
+PLL output clock frequency = VCO frequency / PLLP with PLLP = 2, 4, 6, or 8
+00: PLLP = 2
+01: PLLP = 4
+10: PLLP = 6
+11: PLLP = 8</Description>
+          <EndBit>17</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLN</Name>
+          <Description>Main PLL (PLL) multiplication factor for VCO 
+Set and cleared by software to control the multiplication factor of the VCO. These bits can
+be written only when PLL is disabled. Only half-word and word accesses are allowed to
+write these bits.
+Caution: The software has to set these bits correctly to ensure that the VCO output
+frequency is between 192 and 432 MHz. Below an example of PLLN bitfield
+forbidden values for PLL input equal to FPLL_IN = 1 MHz:
+VCO output frequency = VCO input frequency × PLLN with 192 ≤ PLLN ≤ 432
+000000000: PLLN = 0, wrong configuration
+000000001: PLLN = 1, wrong configuration
+...
+011000000: PLLN = 192
+...
+110110000: PLLN = 432
+110110001: PLLN = 433, wrong configuration
+...
+111111111: PLLN = 511, wrong configuration</Description>
+          <EndBit>14</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLM</Name>
+          <Description>Division factor for the main PLL (PLL) and audio PLL (PLLI2S) input clock 
+Set and cleared by software to divide the PLL and PLLI2S input clock before the VCO.
+These bits can be written only when the PLL and PLLI2S are disabled.
+Caution: The software has to set these bits correctly to ensure that the VCO input frequency
+ranges from 1 to 2 MHz. It is recommended to select a frequency of 2 MHz to limit
+PLL jitter.
+VCO input frequency = PLL input clock frequency / PLLM with 2 ≤ PLLM ≤ 63
+000000: PLLM = 0, wrong configuration
+000001: PLLM = 1, wrong configuration
+000010: PLLM = 2
+000011: PLLM = 3
+000100: PLLM = 4
+...
+111110: PLLM = 62
+111111: PLLM = 63</Description>
+          <EndBit>5</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CFGR</Name>
+      <Description>RCC clock configuration register
+1 or 2 wait states inserted only if the access occurs during a clock source switch.</Description>
+      <Offset>0x08</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>MCO2[1:0]</Name>
+          <Description>Microcontroller clock output 2 
+Set and cleared by software. Clock source selection may generate glitches on MCO2. It is
+highly recommended to configure these bits only after reset before enabling the external
+oscillators and the PLLs.
+00: System clock (SYSCLK) selected
+01: PLLI2S clock selected
+10: HSE oscillator clock selected
+11: PLL clock selected</Description>
+          <EndBit>31</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MCO2PRE</Name>
+          <Description>MCO2 prescaler 
+Set and cleared by software to configure the prescaler of the MCO2. Modification of this
+prescaler may generate glitches on MCO2. It is highly recommended to change this
+prescaler only after reset before enabling the external oscillators and the PLLs.
+0xx: no division
+100: division by 2
+101: division by 3
+110: division by 4
+111: division by 5</Description>
+          <EndBit>27</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MCO1PRE</Name>
+          <Description>MCO1 prescaler 
+Set and cleared by software to configure the prescaler of the MCO1. Modification of this
+prescaler may generate glitches on MCO1. It is highly recommended to change this
+prescaler only after reset before enabling the external oscillators and the PLL.
+0xx: no division
+100: division by 2
+101: division by 3
+110: division by 4
+111: division by 5</Description>
+          <EndBit>24</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2SSRC</Name>
+          <Description>I2S clock selection 
+Set and cleared by software. This bit allows to select the I2S clock source between the
+PLLI2S clock and the external clock. It is highly recommended to change this bit only after
+reset and before enabling the I2S module.
+0: PLLI2S clock used as I2S clock source
+1: External clock mapped on the I2S_CKIN pin used as I2S clock source</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MCO1</Name>
+          <Description>Microcontroller clock output 1 
+Set and cleared by software. Clock source selection may generate glitches on MCO1. It is
+highly recommended to configure these bits only after reset before enabling the external
+oscillators and PLL.
+00: HSI clock selected
+01: LSE oscillator selected
+10: HSE oscillator clock selected
+11: PLL clock selected</Description>
+          <EndBit>22</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RTCPRE</Name>
+          <Description>HSE division factor for RTC clock 
+Set and cleared by software to divide the HSE clock input clock to generate a 1 MHz clock
+for RTC.
+Caution: The software has to set these bits correctly to ensure that the clock supplied to the
+RTC is 1 MHz. These bits must be configured if needed before selecting the RTC
+clock source.
+00000: no clock
+00001: no clock
+00010: HSE/2
+00011: HSE/3
+00100: HSE/4
+...
+11110: HSE/30
+11111: HSE/31</Description>
+          <EndBit>20</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PPRE2</Name>
+          <Description>APB high-speed prescaler (APB2) 
+Set and cleared by software to control APB high-speed clock division factor.
+Caution: The software has to set these bits correctly not to exceed 90 MHz on this domain.
+The clocks are divided with the new prescaler factor from 1 to 16 AHB cycles after
+PPRE2 write.
+0xx: AHB clock not divided
+100: AHB clock divided by 2
+101: AHB clock divided by 4
+110: AHB clock divided by 8
+111: AHB clock divided by 16</Description>
+          <EndBit>15</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PPRE1</Name>
+          <Description>APB Low speed prescaler (APB1) 
+Set and cleared by software to control APB low-speed clock division factor.
+Caution: The software has to set these bits correctly not to exceed 45 MHz on this domain.
+The clocks are divided with the new prescaler factor from 1 to 16 AHB cycles after
+PPRE1 write.
+0xx: AHB clock not divided
+100: AHB clock divided by 2
+101: AHB clock divided by 4
+110: AHB clock divided by 8
+111: AHB clock divided by 16</Description>
+          <EndBit>12</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HPRE</Name>
+          <Description>AHB prescaler 
+Set and cleared by software to control AHB clock division factor.
+Caution: The clocks are divided with the new prescaler factor from 1 to 16 AHB cycles after
+HPRE write.
+Caution: The AHB clock frequency must be at least 25 MHz when the Ethernet is used.
+0xxx: system clock not divided
+1000: system clock divided by 2
+1001: system clock divided by 4
+1010: system clock divided by 8
+1011: system clock divided by 16
+1100: system clock divided by 64
+1101: system clock divided by 128
+1110: system clock divided by 256
+1111: system clock divided by 512</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SWS</Name>
+          <Description>System clock switch status 
+Set and cleared by hardware to indicate which clock source is used as the system clock.
+00: HSI oscillator used as the system clock
+01: HSE oscillator used as the system clock
+10: PLL used as the system clock
+11: not applicable</Description>
+          <EndBit>3</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SW</Name>
+          <Description>System clock switch 
+Set and cleared by software to select the system clock source.
+Set by hardware to force the HSI selection when leaving the Stop or Standby mode or in
+case of failure of the HSE oscillator used directly or indirectly as the system clock.
+00: HSI oscillator selected as system clock
+01: HSE oscillator selected as system clock
+10: PLL selected as system clock
+11: not allowed</Description>
+          <EndBit>1</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CIR</Name>
+      <Description>RCC clock interrupt register</Description>
+      <Offset>0x0C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CSSC</Name>
+          <Description>Clock security system interrupt clear 
+This bit is set by software to clear the CSSF flag.
+0: No effect
+1: Clear CSSF flag</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIRDYC</Name>
+          <Description>PLLSAI Ready Interrupt Clear 
+This bit is set by software to clear PLLSAIRDYF flag. It is reset by hardware when the
+PLLSAIRDYF is cleared.
+0: PLLSAIRDYF not cleared
+1: PLLSAIRDYF cleared</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SRDYC</Name>
+          <Description>PLLI2S ready interrupt clear 
+This bit is set by software to clear the PLLI2SRDYF flag.
+0: No effect
+1: PLLI2SRDYF cleared</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLRDYC</Name>
+          <Description>Main PLL(PLL) ready interrupt clear 
+This bit is set by software to clear the PLLRDYF flag.
+0: No effect
+1: PLLRDYF cleared</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSERDYC</Name>
+          <Description>HSE ready interrupt clear 
+This bit is set by software to clear the HSERDYF flag.
+0: No effect
+1: HSERDYF cleared</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSIRDYC</Name>
+          <Description>HSI ready interrupt clear 
+This bit is set software to clear the HSIRDYF flag.
+0: No effect
+1: HSIRDYF cleared</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSERDYC</Name>
+          <Description>LSE ready interrupt clear 
+This bit is set by software to clear the LSERDYF flag.
+0: No effect
+1: LSERDYF cleared</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSIRDYC</Name>
+          <Description>LSI ready interrupt clear 
+This bit is set by software to clear the LSIRDYF flag.
+0: No effect
+1: LSIRDYF cleared</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIRDYIE</Name>
+          <Description>PLLSAI Ready Interrupt Enable 
+This bit is set and reset by software to enable/disable interrupt caused by PLLSAI lock.
+0: PLLSAI lock interrupt disabled
+1: PLLSAI lock interrupt enabled</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SRDYIE</Name>
+          <Description>PLLI2S ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by PLLI2S lock.
+0: PLLI2S lock interrupt disabled
+1: PLLI2S lock interrupt enabled</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLRDYIE</Name>
+          <Description>Main PLL (PLL) ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by PLL lock.
+0: PLL lock interrupt disabled
+1: PLL lock interrupt enabled</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSERDYIE</Name>
+          <Description>HSE ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by the HSE
+oscillator stabilization.
+0: HSE ready interrupt disabled
+1: HSE ready interrupt enabled</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSIRDYIE</Name>
+          <Description>HSI ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by the HSI
+oscillator stabilization.
+0: HSI ready interrupt disabled
+1: HSI ready interrupt enabled</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSERDYIE</Name>
+          <Description>LSE ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by the LSE
+oscillator stabilization.
+0: LSE ready interrupt disabled
+1: LSE ready interrupt enabled</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSIRDYIE</Name>
+          <Description>LSI ready interrupt enable 
+This bit is set and cleared by software to enable/disable interrupt caused by LSI oscillator
+stabilization.
+0: LSI ready interrupt disabled
+1: LSI ready interrupt enabled</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CSSF</Name>
+          <Description>Clock security system interrupt flag 
+This bit is set by hardware when a failure is detected in the HSE oscillator.
+It is cleared by software by setting the CSSC bit.
+0: No clock security interrupt caused by HSE clock failure
+1: Clock security interrupt caused by HSE clock failure</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIRDYF</Name>
+          <Description>PLLSAI Ready Interrupt flag 
+This bit is set by hardware when the PLLSAI is locked and PLLSAIRDYDIE is set.
+It is cleared by software by setting the PLLSAIRDYC bit.
+0: No clock ready interrupt caused by PLLSAI lock
+1: Clock ready interrupt caused by PLLSAI lock</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SRDYF</Name>
+          <Description>PLLI2S ready interrupt flag 
+This bit is set by hardware when the PLLI2S is locked and PLLI2SRDYDIE is set.
+It is cleared by software by setting the PLLRI2SDYC bit.
+0: No clock ready interrupt caused by PLLI2S lock
+1: Clock ready interrupt caused by PLLI2S lock</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLRDYF</Name>
+          <Description>Main PLL (PLL) ready interrupt flag 
+This bit is set by hardware when PLL is locked and PLLRDYDIE is set.
+It is cleared by software setting the PLLRDYC bit.
+0: No clock ready interrupt caused by PLL lock
+1: Clock ready interrupt caused by PLL lock</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSERDYF</Name>
+          <Description>HSE ready interrupt flag 
+This bit is set by hardware when External High Speed clock becomes stable and
+HSERDYDIE is set.
+It is cleared by software by setting the HSERDYC bit.
+0: No clock ready interrupt caused by the HSE oscillator
+1: Clock ready interrupt caused by the HSE oscillator</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HSIRDYF</Name>
+          <Description>HSI ready interrupt flag 
+This bit is set by hardware when the Internal High Speed clock becomes stable and
+HSIRDYDIE is set.
+It is cleared by software by setting the HSIRDYC bit.
+0: No clock ready interrupt caused by the HSI oscillator
+1: Clock ready interrupt caused by the HSI oscillator</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSERDYF</Name>
+          <Description>LSE ready interrupt flag 
+This bit is set by hardware when the External Low Speed clock becomes stable and
+LSERDYDIE is set.
+It is cleared by software by setting the LSERDYC bit.
+0: No clock ready interrupt caused by the LSE oscillator
+1: Clock ready interrupt caused by the LSE oscillator</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSIRDYF</Name>
+          <Description>LSI ready interrupt flag 
+This bit is set by hardware when the internal low speed clock becomes stable and
+LSIRDYDIE is set.
+It is cleared by software by setting the LSIRDYC bit.
+0: No clock ready interrupt caused by the LSI oscillator
+1: Clock ready interrupt caused by the LSI oscillator</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB1RSTR</Name>
+      <Description>RCC AHB1 peripheral reset register</Description>
+      <Offset>0x10</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGHSRST</Name>
+          <Description>USB OTG HS module reset 
+This bit is set and cleared by software.
+0: does not reset the USB OTG HS module
+1: resets the USB OTG HS module</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACRST</Name>
+          <Description>Ethernet MAC reset 
+This bit is set and cleared by software.
+0: does not reset Ethernet MAC
+1: resets Ethernet MAC</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2DRST</Name>
+          <Description>DMA2D reset 
+This bit is set and reset by software.
+0: does not reset DMA2D
+1: resets DMA2D</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2RST</Name>
+          <Description>DMA2 reset 
+This bit is set and cleared by software.
+0: does not reset DMA2
+1: resets DMA2</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA1RST</Name>
+          <Description>DMA2 reset 
+This bit is set and cleared by software.
+0: does not reset DMA2
+1: resets DMA2</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRCRST</Name>
+          <Description>CRC reset 
+This bit is set and cleared by software.
+0: does not reset CRC
+1: resets CRC</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOKRST</Name>
+          <Description>IO port K reset 
+This bit is set and cleared by software.
+0: does not reset IO port K
+1: resets IO port K</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOJRST</Name>
+          <Description>IO port J reset 
+This bit is set and cleared by software.
+0: does not reset IO port J
+1: resets IO port J</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOIRST</Name>
+          <Description>IO port I reset 
+This bit is set and cleared by software.
+0: does not reset IO port I
+1: resets IO port I</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOHRST</Name>
+          <Description>IO port H reset 
+This bit is set and cleared by software.
+0: does not reset IO port H
+1: resets IO port H</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOGRST</Name>
+          <Description>IO port G reset 
+This bit is set and cleared by software.
+0: does not reset IO port G
+1: resets IO port G</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOFRST</Name>
+          <Description>IO port F reset 
+This bit is set and cleared by software.
+0: does not reset IO port F
+1: resets IO port F</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOERST</Name>
+          <Description>IO port E reset 
+This bit is set and cleared by software.
+0: does not reset IO port E
+1: resets IO port E</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIODRST</Name>
+          <Description>IO port D reset 
+This bit is set and cleared by software.
+0: does not reset IO port D
+1: resets IO port D</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOCRST</Name>
+          <Description>IO port C reset 
+This bit is set and cleared by software.
+0: does not reset IO port C
+1: resets IO port C</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOBRST</Name>
+          <Description>IO port B reset 
+This bit is set and cleared by software.
+0: does not reset IO port B
+1:resets IO port B</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOARST</Name>
+          <Description>IO port A reset 
+This bit is set and cleared by software.
+0: does not reset IO port A
+1: resets IO port A</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB2RSTR</Name>
+      <Description>RCC AHB2 peripheral reset register</Description>
+      <Offset>0x14</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGFSRST</Name>
+          <Description>USB OTG FS module reset 
+Set and cleared by software.
+0: does not reset the USB OTG FS module
+1: resets the USB OTG FS module</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RNGRST</Name>
+          <Description>Random number generator module reset 
+Set and cleared by software.
+0: does not reset the random number generator module
+1: resets the random number generator module</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HASHRST</Name>
+          <Description>Hash module reset 
+Set and cleared by software.
+0: does not reset the HASH module
+1: resets the HASH module</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRYPRST</Name>
+          <Description>Cryptographic module reset 
+Set and cleared by software.
+0: does not reset the cryptographic module
+1: resets the cryptographic module</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCMIRST</Name>
+          <Description>Camera interface reset 
+Set and cleared by software.
+0: does not reset the Camera interface
+1: resets the Camera interface</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB3RSTR</Name>
+      <Description>RCC AHB3 peripheral reset register</Description>
+      <Offset>0x18</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>FMCRST</Name>
+          <Description>Flexible memory controller module reset 
+Set and cleared by software.
+0: does not reset the FMC module
+1: resets the FMC module</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB1RSTR</Name>
+      <Description>RCC APB1 peripheral reset register</Description>
+      <Offset>0x20</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>UART8RST</Name>
+          <Description>UART8 reset 
+Set and cleared by software.
+0: does not reset UART8
+1: resets UART8</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART7RST</Name>
+          <Description>UART7 reset 
+Set and cleared by software.
+0: does not reset UART7
+1: resets UART7</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DACRST</Name>
+          <Description>DAC reset 
+Set and cleared by software.
+0: does not reset the DAC interface
+1: resets the DAC interface</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PWRRST</Name>
+          <Description>Power interface reset 
+Set and cleared by software.
+0: does not reset the power interface
+1: resets the power interface</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN2RST</Name>
+          <Description>CAN2 reset 
+Set and cleared by software.
+0: does not reset CAN2
+1: resets CAN2</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN1RST</Name>
+          <Description>CAN1 reset 
+Set and cleared by software.
+0: does not reset CAN1
+1: resets CAN1</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C3RST</Name>
+          <Description>I2C3 reset 
+Set and cleared by software.
+0: does not reset I2C3
+1: resets I2C3</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C2RST</Name>
+          <Description>I2C2 reset 
+Set and cleared by software.
+0: does not reset I2C2
+1: resets I2C2</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C1RST</Name>
+          <Description>I2C1 reset 
+Set and cleared by software.
+0: does not reset I2C1
+1: resets I2C1</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART5RST</Name>
+          <Description>UART5 reset 
+Set and cleared by software.
+0: does not reset UART5
+1: resets UART5</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART4RST</Name>
+          <Description>USART4 reset 
+Set and cleared by software.
+0: does not reset UART4
+1: resets UART4</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART3RST</Name>
+          <Description>USART3 reset 
+Set and cleared by software.
+0: does not reset USART3
+1: resets USART3</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART2RST</Name>
+          <Description>USART2 reset 
+Set and cleared by software.
+0: does not reset USART2
+1: resets USART2</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI3RST</Name>
+          <Description>SPI3 reset 
+Set and cleared by software.
+0: does not reset SPI3
+1: resets SPI3</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI2RST</Name>
+          <Description>SPI2 reset 
+Set and cleared by software.
+0: does not reset SPI2
+1: resets SPI2</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WWDGRST</Name>
+          <Description>Window watchdog reset 
+Set and cleared by software.
+0: does not reset the window watchdog
+1: resets the window watchdog</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM14RST</Name>
+          <Description>TIM14 reset 
+Set and cleared by software.
+0: does not reset TIM14
+1: resets TIM14</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM13RST</Name>
+          <Description>TIM13 reset 
+Set and cleared by software.
+0: does not reset TIM13
+1: resets TIM13</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM12RST</Name>
+          <Description>TIM12 reset 
+Set and cleared by software.
+0: does not reset TIM12
+1: resets TIM12</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM7RST</Name>
+          <Description>TIM7 reset 
+Set and cleared by software.
+0: does not reset TIM7
+1: resets TIM7</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM6RST</Name>
+          <Description>TIM6 reset 
+Set and cleared by software.
+0: does not reset TIM6
+1: resets TIM6</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM5RST</Name>
+          <Description>TIM5 reset 
+Set and cleared by software.
+0: does not reset TIM5
+1: resets TIM5</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM4RST</Name>
+          <Description>TIM4 reset 
+Set and cleared by software.
+0: does not reset TIM4
+1: resets TIM4</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM3RST</Name>
+          <Description>TIM3 reset 
+Set and cleared by software.
+0: does not reset TIM3
+1: resets TIM3</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM2RST</Name>
+          <Description>TIM2 reset 
+Set and cleared by software.
+0: does not reset TIM2
+1: resets TIM2</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB2RSTR</Name>
+      <Description>RCC APB2 peripheral reset register</Description>
+      <Offset>0x24</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LTDCRST</Name>
+          <Description>LTDC reset 
+This bit is set and reset by software.
+0: does not reset LCD-TFT
+1: resets LCD-TFT</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SAI1RST</Name>
+          <Description>SAI1 reset 
+This bit is set and reset by software.
+0: does not reset SAI1
+1: resets SAI1</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI6RST</Name>
+          <Description>SPI6 reset 
+This bit is set and cleared by software.
+0: does not reset SPI6
+1: resets SPI6</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI5RST</Name>
+          <Description>SPI5 reset 
+This bit is set and cleared by software.
+0: does not reset SPI5
+1: resets SPI5</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM11RST</Name>
+          <Description>TIM11 reset 
+This bit is set and cleared by software.
+0: does not reset TIM11
+1: resets TIM14</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM10RST</Name>
+          <Description>TIM10 reset 
+This bit is set and cleared by software.
+0: does not reset TIM10
+1: resets TIM10</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM9RST</Name>
+          <Description>TIM9 reset 
+This bit is set and cleared by software.
+0: does not reset TIM9
+1: resets TIM9</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SYSCFGRST</Name>
+          <Description>System configuration controller reset 
+This bit is set and cleared by software.
+0: does not reset the System configuration controller
+1: resets the System configuration controller</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI4RST</Name>
+          <Description>SPI4 reset 
+This bit is set and cleared by software.
+0: does not reset SPI4
+1: resets SPI4</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI1RST</Name>
+          <Description>SPI1 reset 
+This bit is set and cleared by software.
+0: does not reset SPI1
+1: resets SPI1</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SDIORST</Name>
+          <Description>SDIO reset 
+This bit is set and cleared by software.
+0: does not reset the SDIO module
+1: resets the SDIO module</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADCRST</Name>
+          <Description>ADC interface reset (common to all ADCs) 
+This bit is set and cleared by software.
+0: does not reset the ADC interface
+1: resets the ADC interface</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART6RST</Name>
+          <Description>USART6 reset 
+This bit is set and cleared by software.
+0: does not reset USART6
+1: resets USART6</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART1RST</Name>
+          <Description>USART1 reset 
+This bit is set and cleared by software.
+0: does not reset USART1
+1: resets USART1</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM8RST</Name>
+          <Description>TIM8 reset 
+This bit is set and cleared by software.
+0: does not reset TIM8
+1: resets TIM8</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM1RST</Name>
+          <Description>TIM1 reset 
+This bit is set and cleared by software.
+0: does not reset TIM1
+1: resets TIM1</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB1ENR</Name>
+      <Description>RCC AHB1 peripheral clock register</Description>
+      <Offset>0x30</Offset>
+      <ResetValue>0x00100000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGHSULPIEN</Name>
+          <Description>USB OTG HSULPI clock enable 
+This bit is set and cleared by software.
+0: USB OTG HS ULPI clock disabled
+1: USB OTG HS ULPI clock enabled</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OTGHSEN</Name>
+          <Description>USB OTG HS clock enable 
+This bit is set and cleared by software.
+0: USB OTG HS clock disabled
+1: USB OTG HS clock enabled</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACPTPEN</Name>
+          <Description>Ethernet PTP clock enable 
+This bit is set and cleared by software.
+0: Ethernet PTP clock disabled
+1: Ethernet PTP clock enabled</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACRXEN</Name>
+          <Description>Ethernet Reception clock enable 
+This bit is set and cleared by software.
+0: Ethernet Reception clock disabled
+1: Ethernet Reception clock enabled</Description>
+          <EndBit>27</EndBit>
+          <StartBit>27</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACTXEN</Name>
+          <Description>Ethernet Transmission clock enable 
+This bit is set and cleared by software.
+0: Ethernet Transmission clock disabled
+1: Ethernet Transmission clock enabled</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACEN</Name>
+          <Description>Ethernet MAC clock enable 
+This bit is set and cleared by software.
+0: Ethernet MAC clock disabled
+1: Ethernet MAC clock enabled</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2DEN</Name>
+          <Description>DMA2D clock enable 
+This bit is set and cleared by software.
+0: DMA2D clock disabled
+1: DMA2D clock enabled</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2EN</Name>
+          <Description>DMA2 clock enable 
+This bit is set and cleared by software.
+0: DMA2 clock disabled
+1: DMA2 clock enabled</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA1EN</Name>
+          <Description>DMA1 clock enable 
+This bit is set and cleared by software.
+0: DMA1 clock disabled
+1: DMA1 clock enabled</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CCMDATARAMEN</Name>
+          <Description>CCM data RAM clock enable 
+This bit is set and cleared by software.
+0: CCM data RAM clock disabled
+1: CCM data RAM clock enabled</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BKPSRAMEN</Name>
+          <Description>Backup SRAM interface clock enable 
+This bit is set and cleared by software.
+0: Backup SRAM interface clock disabled
+1: Backup SRAM interface clock enabled</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRCEN</Name>
+          <Description>CRC clock enable 
+This bit is set and cleared by software.
+0: CRC clock disabled
+1: CRC clock enabled</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOKEN</Name>
+          <Description>IO port K clock enable 
+This bit is set and cleared by software.
+0: IO port K clock disabled
+1: IO port K clock enabled</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOJEN</Name>
+          <Description>IO port J clock enable 
+This bit is set and cleared by software.
+0: IO port J clock disabled
+1: IO port J clock enabled</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOIEN</Name>
+          <Description>IO port I clock enable 
+This bit is set and cleared by software.
+0: IO port I clock disabled
+1: IO port I clock enabled</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOHEN</Name>
+          <Description>IO port H clock enable 
+This bit is set and cleared by software.
+0: IO port H clock disabled
+1: IO port H clock enabled</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOGEN</Name>
+          <Description>IO port G clock enable 
+This bit is set and cleared by software.
+0: IO port G clock disabled
+1: IO port G clock enabled</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOFEN</Name>
+          <Description>IO port F clock enable 
+This bit is set and cleared by software.
+0: IO port F clock disabled
+1: IO port F clock enabled</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOEEN</Name>
+          <Description>IO port E clock enable 
+This bit is set and cleared by software.
+0: IO port E clock disabled
+1: IO port E clock enabled</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIODEN</Name>
+          <Description>IO port D clock enable 
+This bit is set and cleared by software.
+0: IO port D clock disabled
+1: IO port D clock enabled</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOCEN</Name>
+          <Description>IO port C clock enable 
+This bit is set and cleared by software.
+0: IO port C clock disabled
+1: IO port C clock enabled</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOBEN</Name>
+          <Description>IO port B clock enable 
+This bit is set and cleared by software.
+0: IO port B clock disabled
+1: IO port B clock enabled</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOAEN</Name>
+          <Description>IO port A clock enable 
+This bit is set and cleared by software.
+0: IO port A clock disabled
+1: IO port A clock enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB2ENR</Name>
+      <Description>RCC AHB2 peripheral clock enable register</Description>
+      <Offset>0x34</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGFSEN</Name>
+          <Description>USB OTG FS clock enable 
+This bit is set and cleared by software.
+0: USB OTG FS clock disabled
+1: USB OTG FS clock enabled</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RNGEN</Name>
+          <Description>Random number generator clock enable 
+This bit is set and cleared by software.
+0: Random number generator clock disabled
+1: Random number generator clock enabled</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HASHEN</Name>
+          <Description>Hash modules clock enable 
+This bit is set and cleared by software.
+0: Hash modules clock disabled
+1: Hash modules clock enabled</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRYPEN</Name>
+          <Description>Cryptographic modules clock enable 
+This bit is set and cleared by software.
+0: cryptographic module clock disabled
+1: cryptographic module clock enabled</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCMIEN</Name>
+          <Description>Camera interface enable 
+This bit is set and cleared by software.
+0: Camera interface clock disabled
+1: Camera interface clock enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB3ENR</Name>
+      <Description>RCC AHB3 peripheral clock enable register</Description>
+      <Offset>0x38</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>FMCEN</Name>
+          <Description>Flexible memory controller module clock enable 
+This bit is set and cleared by software.
+0: FMC module clock disabled
+1: FMC module clock enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB1ENR</Name>
+      <Description>RCC APB1 peripheral clock enable register</Description>
+      <Offset>0x40</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>UART8EN</Name>
+          <Description>UART8 clock enable 
+This bit is set and cleared by software.
+0: UART8 clock disabled
+1: UART8 clock enabled</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART7EN</Name>
+          <Description>UART7 clock enable 
+This bit is set and cleared by software.
+0: UART7 clock disabled
+1: UART7 clock enabled</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DACEN</Name>
+          <Description>DAC interface clock enable 
+This bit is set and cleared by software.
+0: DAC interface clock disabled
+1: DAC interface clock enable</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PWREN</Name>
+          <Description>Power interface clock enable 
+This bit is set and cleared by software.
+0: Power interface clock disabled
+1: Power interface clock enable</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN2EN</Name>
+          <Description>CAN 2 clock enable 
+This bit is set and cleared by software.
+0: CAN 2 clock disabled
+1: CAN 2 clock enabled</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN1EN</Name>
+          <Description>CAN 1 clock enable 
+This bit is set and cleared by software.
+0: CAN 1 clock disabled
+1: CAN 1 clock enabled</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C3EN</Name>
+          <Description>I2C3 clock enable 
+This bit is set and cleared by software.
+0: I2C3 clock disabled
+1: I2C3 clock enabled</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C2EN</Name>
+          <Description>I2C2 clock enable 
+This bit is set and cleared by software.
+0: I2C2 clock disabled
+1: I2C2 clock enabled</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C1EN</Name>
+          <Description>I2C1 clock enable 
+This bit is set and cleared by software.
+0: I2C1 clock disabled
+1: I2C1 clock enabled</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART5EN</Name>
+          <Description>UART5 clock enable 
+This bit is set and cleared by software.
+0: UART5 clock disabled
+1: UART5 clock enabled</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART4EN</Name>
+          <Description>UART4 clock enable 
+This bit is set and cleared by software.
+0: UART4 clock disabled
+1: UART4 clock enabled</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART3EN</Name>
+          <Description>USART3 clock enable 
+This bit is set and cleared by software.
+0: USART3 clock disabled
+1: USART3 clock enabled</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART2EN</Name>
+          <Description>USART2 clock enable 
+This bit is set and cleared by software.
+0: USART2 clock disabled
+1: USART2 clock enabled</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI3EN</Name>
+          <Description>SPI3 clock enable 
+This bit is set and cleared by software.
+0: SPI3 clock disabled
+1: SPI3 clock enabled</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI2EN</Name>
+          <Description>SPI2 clock enable 
+This bit is set and cleared by software.
+0: SPI2 clock disabled
+1: SPI2 clock enabled</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WWDGEN</Name>
+          <Description>Window watchdog clock enable 
+This bit is set and cleared by software.
+0: Window watchdog clock disabled
+1: Window watchdog clock enabled</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM14EN</Name>
+          <Description>TIM14 clock enable 
+This bit is set and cleared by software.
+0: TIM14 clock disabled
+1: TIM14 clock enabled</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM13EN</Name>
+          <Description>TIM13 clock enable 
+This bit is set and cleared by software.
+0: TIM13 clock disabled
+1: TIM13 clock enabled</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM12EN</Name>
+          <Description>TIM12 clock enable 
+This bit is set and cleared by software.
+0: TIM12 clock disabled
+1: TIM12 clock enabled</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM7EN</Name>
+          <Description>TIM7 clock enable 
+This bit is set and cleared by software.
+0: TIM7 clock disabled
+1: TIM7 clock enabled</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM6EN</Name>
+          <Description>TIM6 clock enable 
+This bit is set and cleared by software.
+0: TIM6 clock disabled
+1: TIM6 clock enabled</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM5EN</Name>
+          <Description>TIM5 clock enable 
+This bit is set and cleared by software.
+0: TIM5 clock disabled
+1: TIM5 clock enabled</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM4EN</Name>
+          <Description>TIM4 clock enable 
+This bit is set and cleared by software.
+0: TIM4 clock disabled
+1: TIM4 clock enabled</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM3EN</Name>
+          <Description>TIM3 clock enable 
+This bit is set and cleared by software.
+0: TIM3 clock disabled
+1: TIM3 clock enabled</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM2EN</Name>
+          <Description>TIM2 clock enable 
+This bit is set and cleared by software.
+0: TIM2 clock disabled
+1: TIM2 clock enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB2ENR</Name>
+      <Description>RCC APB2 peripheral clock enable register</Description>
+      <Offset>0x44</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LTDCEN</Name>
+          <Description>LTDC clock enable 
+This bit is set and cleared by software.
+0: LTDC clock disabled
+1: LTDC clock enabled</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SAI1EN</Name>
+          <Description>SAI1 clock enable 
+This bit is set and cleared by software.
+0: SAI1 clock disabled
+1: SAI1 clock enabled</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI6EN</Name>
+          <Description>SPI6 clock enable 
+This bit is set and cleared by software.
+0: SPI6 clock disabled
+1: SPI6 clock enabled </Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI5EN</Name>
+          <Description>SPI5 clock enable 
+This bit is set and cleared by software.
+0: SPI5 clock disabled
+1: SPI5 clock enabled</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM11EN</Name>
+          <Description>TIM11 clock enable 
+This bit is set and cleared by software.
+0: TIM11 clock disabled
+1: TIM11 clock enabled</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM10EN</Name>
+          <Description>TIM10 clock enable 
+This bit is set and cleared by software.
+0: TIM10 clock disabled
+1: TIM10 clock enabled</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM9EN</Name>
+          <Description>TIM9 clock enable 
+This bit is set and cleared by software.
+0: TIM9 clock disabled
+1: TIM9 clock enabled</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SYSCFGEN</Name>
+          <Description>System configuration controller clock enable 
+This bit is set and cleared by software.
+0: System configuration controller clock disabled
+1: System configuration controller clock enabled</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI4EN</Name>
+          <Description>SPI4 clock enable 
+This bit is set and cleared by software.
+0: SPI4 clock disabled
+1: SPI4 clock enabled</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI1EN</Name>
+          <Description>SPI1 clock enable 
+This bit is set and cleared by software.
+0: SPI1 clock disabled
+1: SPI1 clock enabled</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SDIOEN</Name>
+          <Description>SDIO clock enable 
+This bit is set and cleared by software.
+0: SDIO module clock disabled
+1: SDIO module clock enabled</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC3EN</Name>
+          <Description>ADC3 clock enable 
+This bit is set and cleared by software.
+0: ADC3 clock disabled
+1: ADC3 clock disabled</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC2EN</Name>
+          <Description>ADC2 clock enable 
+This bit is set and cleared by software.
+0: ADC2 clock disabled
+1: ADC2 clock disabled</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC1EN</Name>
+          <Description>ADC1 clock enable 
+This bit is set and cleared by software.
+0: ADC1 clock disabled
+1: ADC1 clock disabled</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART6EN</Name>
+          <Description>USART6 clock enable 
+This bit is set and cleared by software.
+0: USART6 clock disabled
+1: USART6 clock enabled</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART1EN</Name>
+          <Description>USART1 clock enable 
+This bit is set and cleared by software.
+0: USART1 clock disabled
+1: USART1 clock enabled</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM8EN</Name>
+          <Description>TIM8 clock enable 
+This bit is set and cleared by software.
+0: TIM8 clock disabled
+1: TIM8 clock enabled</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM1EN</Name>
+          <Description>TIM1 clock enable 
+This bit is set and cleared by software.
+0: TIM1 clock disabled
+1: TIM1 clock enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB1LPENR</Name>
+      <Description>RCC AHB1 peripheral clock enable in low power mode register</Description>
+      <Offset>0x50</Offset>
+      <ResetValue>0x7EEF97FF</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGHSULPILPEN</Name>
+          <Description>USB OTG HS ULPI clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USB OTG HS ULPI clock disabled during Sleep mode
+1: USB OTG HS ULPI clock enabled during Sleep mode</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OTGHSLPEN</Name>
+          <Description>USB OTG HS clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USB OTG HS clock disabled during Sleep mode
+1: USB OTG HS clock enabled during Sleep mode </Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACPTPLPEN</Name>
+          <Description>Ethernet PTP clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Ethernet PTP clock disabled during Sleep mode
+1: Ethernet PTP clock enabled during Sleep mode</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACRXLPEN</Name>
+          <Description>Ethernet reception clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Ethernet reception clock disabled during Sleep mode
+1: Ethernet reception clock enabled during Sleep mode</Description>
+          <EndBit>27</EndBit>
+          <StartBit>27</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACTXLPEN</Name>
+          <Description>Ethernet transmission clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Ethernet transmission clock disabled during sleep mode
+1: Ethernet transmission clock enabled during sleep mode</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ETHMACLPEN</Name>
+          <Description>Ethernet MAC clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Ethernet MAC clock disabled during Sleep mode
+1: Ethernet MAC clock enabled during Sleep mode</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2DLPEN</Name>
+          <Description>DMA2D clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: DMA2D clock disabled during Sleep mode
+1: DMA2D clock enabled during Sleep mode</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA2LPEN</Name>
+          <Description>DMA2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: DMA2 clock disabled during Sleep mode
+1: DMA2 clock enabled during Sleep mode</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DMA1LPEN</Name>
+          <Description>DMA1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: DMA1 clock disabled during Sleep mode
+1: DMA1 clock enabled during Sleep mode</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SRAM3LPEN</Name>
+          <Description>SRAM3 interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SRAM3 interface clock disabled during Sleep mode
+1: SRAM3 interface clock enabled during Sleep mode</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BKPSRAMLPEN</Name>
+          <Description>Backup SRAM interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Backup SRAM interface clock disabled during Sleep mode
+1: Backup SRAM interface clock enabled during Sleep mode</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SRAM2LPEN</Name>
+          <Description>SRAM2 interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SRAM2 interface clock disabled during Sleep mode
+1: SRAM2 interface clock enabled during Sleep mode</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SRAM1LPEN</Name>
+          <Description>SRAM1 interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SRAM1 interface clock disabled during Sleep mode
+1: SRAM1 interface clock enabled during Sleep mode</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>FLITFLPEN</Name>
+          <Description>Flash interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Flash interface clock disabled during Sleep mode
+1: Flash interface clock enabled during Sleep mode</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRCLPEN</Name>
+          <Description>CRC clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: CRC clock disabled during Sleep mode
+1: CRC clock enabled during Sleep mode</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOKLPEN</Name>
+          <Description>IO port K clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port K clock disabled during Sleep mode
+1: IO port K clock enabled during Sleep mode</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOJLPEN</Name>
+          <Description>IO port J clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port J clock disabled during Sleep mode
+1: IO port J clock enabled during Sleep mode</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOILPEN</Name>
+          <Description>IO port I clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port I clock disabled during Sleep mode
+1: IO port I clock enabled during Sleep mode</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOHLPEN</Name>
+          <Description>IO port H clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port H clock disabled during Sleep mode
+1: IO port H clock enabled during Sleep mode</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOGLPEN</Name>
+          <Description>IO port G clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port G clock disabled during Sleep mode
+1: IO port G clock enabled during Sleep mode</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOFLPEN</Name>
+          <Description>IO port F clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port F clock disabled during Sleep mode
+1: IO port F clock enabled during Sleep mode</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOELPEN</Name>
+          <Description>IO port E clock enable during Sleep mode 
+Set and cleared by software.
+0: IO port E clock disabled during Sleep mode
+1: IO port E clock enabled during Sleep mode</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIODLPEN</Name>
+          <Description>IO port D clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port D clock disabled during Sleep mode
+1: IO port D clock enabled during Sleep mode</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOCLPEN</Name>
+          <Description>IO port C clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port C clock disabled during Sleep mode
+1: IO port C clock enabled during Sleep mode</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOBLPEN</Name>
+          <Description>IO port B clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: IO port B clock disabled during Sleep mode
+1: IO port B clock enabled during Sleep mode</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GPIOALPEN</Name>
+          <Description>IO port A clock enable during sleep mode 
+This bit is set and cleared by software.
+0: IO port A clock disabled during Sleep mode
+1: IO port A clock enabled during Sleep mode</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB2LPENR</Name>
+      <Description>RCC AHB2 peripheral clock enable in low power mode register</Description>
+      <Offset>0x54</Offset>
+      <ResetValue>0x000000F1</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OTGFSLPEN</Name>
+          <Description>USB OTG FS clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USB OTG FS clock disabled during Sleep mode
+1: USB OTG FS clock enabled during Sleep mode</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RNGLPEN</Name>
+          <Description>Random number generator clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Random number generator clock disabled during Sleep mode
+1: Random number generator clock enabled during Sleep mode</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HASHLPEN</Name>
+          <Description>Hash modules clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Hash modules clock disabled during Sleep mode
+1: Hash modules clock enabled during Sleep mode</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CRYPLPEN</Name>
+          <Description>Cryptography modules clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: cryptography modules clock disabled during Sleep mode
+1: cryptography modules clock enabled during Sleep mode</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCMILPEN</Name>
+          <Description>Camera interface enable during Sleep mode 
+This bit is set and cleared by software.
+0: Camera interface clock disabled during Sleep mode
+1: Camera interface clock enabled during Sleep mode</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AHB3LPENR</Name>
+      <Description>RCC AHB3 peripheral clock enable in low power mode register</Description>
+      <Offset>0x58</Offset>
+      <ResetValue>0x00000001</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>FMCLPEN</Name>
+          <Description>Flexible memory controller module clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: FMC module clock disabled during Sleep mode
+1: FMC module clock enabled during Sleep mode</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB1LPENR</Name>
+      <Description>RCC APB1 peripheral clock enable in low power mode register</Description>
+      <Offset>0x60</Offset>
+      <ResetValue>0xF6FEC9FF</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>UART8LPEN</Name>
+          <Description>UART8 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: UART8 clock disabled during Sleep mode
+1: UART8 clock enabled during Sleep mode</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART7LPEN</Name>
+          <Description>UART7 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: UART7 clock disabled during Sleep mode
+1: UART7 clock enabled during Sleep mode</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DACLPEN</Name>
+          <Description>DAC interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: DAC interface clock disabled during Sleep mode
+1: DAC interface clock enabled during Sleep mode</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PWRLPEN</Name>
+          <Description>Power interface clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Power interface clock disabled during Sleep mode
+1: Power interface clock enabled during Sleep mode</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN2LPEN</Name>
+          <Description>CAN 2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: CAN 2 clock disabled during sleep mode
+1: CAN 2 clock enabled during sleep mode</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CAN1LPEN</Name>
+          <Description>CAN 1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: CAN 1 clock disabled during Sleep mode
+1: CAN 1 clock enabled during Sleep mode</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C3LPEN</Name>
+          <Description>I2C3 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: I2C3 clock disabled during Sleep mode
+1: I2C3 clock enabled during Sleep mode</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C2LPEN</Name>
+          <Description>I2C2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: I2C2 clock disabled during Sleep mode
+1: I2C2 clock enabled during Sleep mode</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>I2C1LPEN</Name>
+          <Description>I2C1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: I2C1 clock disabled during Sleep mode
+1: I2C1 clock enabled during Sleep mode</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART5LPEN</Name>
+          <Description>UART5 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: UART5 clock disabled during Sleep mode
+1: UART5 clock enabled during Sleep mode</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>UART4LPEN</Name>
+          <Description>UART4 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: UART4 clock disabled during Sleep mode
+1: UART4 clock enabled during Sleep mode</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART3LPEN</Name>
+          <Description>USART3 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USART3 clock disabled during Sleep mode
+1: USART3 clock enabled during Sleep mode</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART2LPEN</Name>
+          <Description>USART2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USART2 clock disabled during Sleep mode
+1: USART2 clock enabled during Sleep mode</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI3LPEN</Name>
+          <Description>SPI3 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI3 clock disabled during Sleep mode
+1: SPI3 clock enabled during Sleep mode</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI2LPEN</Name>
+          <Description>SPI2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI2 clock disabled during Sleep mode
+1: SPI2 clock enabled during Sleep mode</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WWDGLPEN</Name>
+          <Description>Window watchdog clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: Window watchdog clock disabled during sleep mode
+1: Window watchdog clock enabled during sleep mode</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM14LPEN</Name>
+          <Description>TIM14 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM14 clock disabled during Sleep mode
+1: TIM14 clock enabled during Sleep mode</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM13LPEN</Name>
+          <Description>TIM13 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM13 clock disabled during Sleep mode
+1: TIM13 clock enabled during Sleep mode</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM12LPEN</Name>
+          <Description>TIM12 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM12 clock disabled during Sleep mode
+1: TIM12 clock enabled during Sleep mode</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM7LPEN</Name>
+          <Description>TIM7 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM7 clock disabled during Sleep mode
+1: TIM7 clock enabled during Sleep mode</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM6LPEN</Name>
+          <Description>TIM6 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM6 clock disabled during Sleep mode
+1: TIM6 clock enabled during Sleep mode</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM5LPEN</Name>
+          <Description>TIM5 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM5 clock disabled during Sleep mode
+1: TIM5 clock enabled during Sleep mode</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM4LPEN</Name>
+          <Description>TIM4 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM4 clock disabled during Sleep mode
+1: TIM4 clock enabled during Sleep mode</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM3LPEN</Name>
+          <Description>TIM3 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM3 clock disabled during Sleep mode
+1: TIM3 clock enabled during Sleep mode</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM2LPEN</Name>
+          <Description>TIM2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM2 clock disabled during Sleep mode
+1: TIM2 clock enabled during Sleep mode</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>APB2LPENR</Name>
+      <Description>RCC APB2 peripheral clock enabled in low power mode register</Description>
+      <Offset>0x64</Offset>
+      <ResetValue>0x0x04777F</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LTDCLPEN</Name>
+          <Description>LTDC clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: LTDC clock disabled during Sleep mode
+1: LTDC clock enabled during Sleep mode</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SAI1LPEN</Name>
+          <Description>SAI1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SAI1 clock disabled during Sleep mode
+1: SAI1 clock enabled during Sleep mode</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI6LPEN</Name>
+          <Description>SPI6 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI6 clock disabled during Sleep mode
+1: SPI6 clock enabled during Sleep mode</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI5LPEN</Name>
+          <Description>SPI5 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI5 clock disabled during Sleep mode
+1: SPI5 clock enabled during Sleep mode</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM11LPEN</Name>
+          <Description>TIM11 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM11 clock disabled during Sleep mode
+1: TIM11 clock enabled during Sleep mode</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM10LPEN</Name>
+          <Description>TIM10 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM10 clock disabled during Sleep mode
+1: TIM10 clock enabled during Sleep mode</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM9LPEN</Name>
+          <Description>TIM9 clock enable during sleep mode 
+This bit is set and cleared by software.
+0: TIM9 clock disabled during Sleep mode
+1: TIM9 clock enabled during Sleep mode</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SYSCFGLPEN</Name>
+          <Description>System configuration controller clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: System configuration controller clock disabled during Sleep mode
+1: System configuration controller clock enabled during Sleep mode</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI4LPEN</Name>
+          <Description>SPI4 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI4 clock disabled during Sleep mode
+1: SPI4 clock enabled during Sleep mode</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPI1LPEN</Name>
+          <Description>SPI1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SPI1 clock disabled during Sleep mode
+1: SPI1 clock enabled during Sleep mode</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SDIOLPEN</Name>
+          <Description>SDIO clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: SDIO module clock disabled during Sleep mode
+1: SDIO module clock enabled during Sleep mode</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC3LPEN</Name>
+          <Description>ADC 3 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: ADC 3 clock disabled during Sleep mode
+1: ADC 3 clock disabled during Sleep mode</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC2LPEN</Name>
+          <Description>ADC2 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: ADC2 clock disabled during Sleep mode
+1: ADC2 clock disabled during Sleep mode</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADC1LPEN</Name>
+          <Description>ADC1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: ADC1 clock disabled during Sleep mode
+1: ADC1 clock disabled during Sleep mode</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART6LPEN</Name>
+          <Description>USART6 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USART6 clock disabled during Sleep mode
+1: USART6 clock enabled during Sleep mode</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>USART1LPEN</Name>
+          <Description>USART1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: USART1 clock disabled during Sleep mode
+1: USART1 clock enabled during Sleep mode</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM8LPEN</Name>
+          <Description>TIM8 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM8 clock disabled during Sleep mode
+1: TIM8 clock enabled during Sleep mode</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TIM1LPEN</Name>
+          <Description>TIM1 clock enable during Sleep mode 
+This bit is set and cleared by software.
+0: TIM1 clock disabled during Sleep mode
+1: TIM1 clock enabled during Sleep mode</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>BDCR</Name>
+      <Description>RCC Backup domain control register
+Wait states are inserted in case of successive accesses to this register.
+The LSEON, LSEBYP, RTCSEL and RTCEN bits in the RCC Backup domain control
+register (RCC_BDCR) are in the Backup domain. As a result, after Reset, these bits are
+write-protected and the DBP bit in the PWR power control register (PWR_CR) for
+STM32F42xxx and STM32F43xxx has to be set before these can be modified. Refer to
+Section 6.1.1: System reset on page 149 for further information. These bits are only reset
+after a Backup domain Reset (see Section 6.1.3: Backup domain reset). Any internal or
+external Reset will not have any effect on these bits.</Description>
+      <Offset>0x70</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>BDRST</Name>
+          <Description>Backup domain software reset 
+This bit is set and cleared by software.
+0: Reset not activated
+1: Resets the entire Backup domain
+Note: The BKPSRAM is not affected by this reset, the only way of resetting the BKPSRAM is
+through the Flash interface when a protection level change from level 1 to level 0 is
+requested.</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RTCEN</Name>
+          <Description>RTC clock enable 
+This bit is set and cleared by software.
+0: RTC clock disabled
+1: RTC clock enabled</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RTCSEL[1:0]</Name>
+          <Description>RTC clock source selection 
+These bits are set by software to select the clock source for the RTC. Once the RTC clock
+source has been selected, it cannot be changed anymore unless the Backup domain is
+reset. The BDRST bit can be used to reset them.
+00: No clock
+01: LSE oscillator clock used as the RTC clock
+10: LSI oscillator clock used as the RTC clock
+11: HSE oscillator clock divided by a programmable prescaler (selection through the
+RTCPRE[4:0] bits in the RCC clock configuration register (RCC_CFGR)) used as the RTC
+clock</Description>
+          <EndBit>9</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSEBYP</Name>
+          <Description>External low-speed oscillator bypass 
+This bit is set and cleared by software to bypass the oscillator. This bit can be written only
+when the LSE clock is disabled.
+0: LSE oscillator not bypassed
+1: LSE oscillator bypassed</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSERDY</Name>
+          <Description>External low-speed oscillator ready 
+This bit is set and cleared by hardware to indicate when the external 32 kHz oscillator is
+stable. After the LSEON bit is cleared, LSERDY goes low after 6 external low-speed
+oscillator clock cycles.
+0: LSE clock not ready
+1: LSE clock ready</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSEON</Name>
+          <Description>External low-speed oscillator enable 
+This bit is set and cleared by software.
+0: LSE clock OFF
+1: LSE clock ON</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CSR</Name>
+      <Description>RCC clock control &amp; status register
+Wait states are inserted in case of successive accesses to this register.</Description>
+      <Offset>0x74</Offset>
+      <ResetValue>0x0E000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LPWRRSTF</Name>
+          <Description>Low-power reset flag 
+This bit is set by hardware when a Low-power management reset occurs.
+Cleared by writing to the RMVF bit.
+0: No Low-power management reset occurred
+1: Low-power management reset occurred
+For further information on Low-power management reset, refer to Low-power management
+reset.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WWDGRSTF</Name>
+          <Description>Window watchdog reset flag 
+This bit is set by hardware when a window watchdog reset occurs.
+Cleared by writing to the RMVF bit.
+0: No window watchdog reset occurred
+1: Window watchdog reset occurred</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IWDGRSTF</Name>
+          <Description>Independent watchdog reset flag 
+This bit is set by hardware when an independent watchdog reset from VDD domain occurs.
+Cleared by writing to the RMVF bit.
+0: No watchdog reset occurred
+1: Watchdog reset occurred</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SFTRSTF</Name>
+          <Description>Software reset flag 
+This bit is set by hardware when a software reset occurs.
+Cleared by writing to the RMVF bit.
+0: No software reset occurred
+1: Software reset occurred</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PORRSTF</Name>
+          <Description>POR/PDR reset flag 
+This bit is set by hardware when a POR/PDR reset occurs.
+Cleared by writing to the RMVF bit.
+0: No POR/PDR reset occurred
+1: POR/PDR reset occurred</Description>
+          <EndBit>27</EndBit>
+          <StartBit>27</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PINRSTF</Name>
+          <Description>PIN reset flag 
+This bit is set by hardware when a reset from the NRST pin occurs.
+Cleared by writing to the RMVF bit.
+0: No reset from NRST pin occurred
+1: Reset from NRST pin occurred</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BORRSTF</Name>
+          <Description>BOR reset flag 
+Cleared by software by writing the RMVF bit.
+This bit is set by hardware when a POR/PDR or BOR reset occurs.
+0: No POR/PDR or BOR reset occurred
+1: POR/PDR or BOR reset occurred</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RMVF</Name>
+          <Description>Remove reset flag 
+This bit is set by software to clear the reset flags.
+0: No effect
+1: Clear the reset flags</Description>
+          <EndBit>24</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rt_w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSIRDY</Name>
+          <Description>Internal low-speed oscillator ready 
+This bit is set and cleared by hardware to indicate when the internal RC 40 kHz oscillator is
+stable. After the LSION bit is cleared, LSIRDY goes low after 3 LSI clock cycles.
+0: LSI RC oscillator not ready
+1: LSI RC oscillator ready</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LSION</Name>
+          <Description>Internal low-speed oscillator enable 
+This bit is set and cleared by software.
+0: LSI RC oscillator OFF
+1: LSI RC oscillator ON</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>SSCGR</Name>
+      <Description>RCC spread spectrum clock generation register
+The spread spectrum clock generation is available only for the main PLL.
+The RCC_SSCGR register must be written either before the main PLL is enabled or after
+the main PLL disabled.
+Note: For full details about PLL spread spectrum clock generation (SSCG) characteristics, refer to
+the “Electrical characteristics” section in your device datasheet.</Description>
+      <Offset>0x80</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>SSCGEN</Name>
+          <Description>Spread spectrum modulation enable 
+This bit is set and cleared by software.
+0: Spread spectrum modulation DISABLE. (To write after clearing CR[24]=PLLON bit)
+1: Spread spectrum modulation ENABLE. (To write before setting CR[24]=PLLON bit)</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SPREADSEL</Name>
+          <Description>Spread Select 
+This bit is set and cleared by software.
+To write before to set CR[24]=PLLON bit.
+0: Center spread
+1: Down spread</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>INCSTEP</Name>
+          <Description>Incrementation step 
+These bits are set and cleared by software. To write before setting CR[24]=PLLON bit.
+Configuration input for modulation profile amplitude.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODPER</Name>
+          <Description>Modulation period 
+These bits are set and cleared by software. To write before setting CR[24]=PLLON bit.
+Configuration input for modulation profile period.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>PLLI2SCFGR</Name>
+      <Description>RCC PLLI2S configuration register
+This register is used to configure the PLLI2S clock outputs according to the formulas:
+f(VCO clock) = f(PLLI2S clock input) × (PLLI2SN / PLLM)
+f(PLL I2S clock output) = f(VCO clock) / PLLI2SR</Description>
+      <Offset>0x84</Offset>
+      <ResetValue>0x24003000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PLLI2SR</Name>
+          <Description>PLLI2S division factor for I2S clocks 
+These bits are set and cleared by software to control the I2S clock frequency. These bits
+should be written only if the PLLI2S is disabled. The factor must be chosen in accordance
+with the prescaler values inside the I2S peripherals, to reach 0.3% error when using
+standard crystals and 0% error with audio crystals. For more information about I2S clock
+frequency and precision, refer to Section 28.4.4: Clock generator in the I2S chapter.
+Caution: The I2Ss requires a frequency lower than or equal to 192 MHz to work correctly.
+I2S clock frequency = VCO frequency / PLLR with 2 ≤ PLLR ≤ 7
+000: PLLR = 0, wrong configuration
+001: PLLR = 1, wrong configuration
+010: PLLR = 2
+...
+111: PLLR = 7</Description>
+          <EndBit>30</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SQ</Name>
+          <Description>PLLI2S division factor for SAI1 clock 
+These bits are set and cleared by software to control the SAI1 clock frequency.
+They should be written when the PLLI2S is disabled.
+SAI1 clock frequency = VCO frequency / PLLI2SQ with 2 &lt;= PLLI2SIQ &lt;= 15
+0000: PLLI2SQ = 0, wrong configuration
+0001: PLLI2SQ = 1, wrong configuration
+0010: PLLI2SQ = 2
+0011: PLLI2SQ = 3
+0100: PLLI2SQ = 4
+0101: PLLI2SQ = 5
+...
+1111: PLLI2SQ = 15</Description>
+          <EndBit>27</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SN</Name>
+          <Description>PLLI2S multiplication factor for VCO 
+These bits are set and cleared by software to control the multiplication factor of the VCO.
+These bits can be written only when the PLLI2S is disabled. Only half-word and word
+accesses are allowed to write these bits.
+Caution: The software has to set these bits correctly to ensure that the VCO output
+frequency is between 192 and 432 MHz.
+VCO output frequency = VCO input frequency × PLLI2SN with 192 ≤ PLLI2SN ≤ 432
+000000000: PLLI2SN = 0, wrong configuration
+000000001: PLLI2SN = 1, wrong configuration
+...
+011000000: PLLI2SN = 192
+011000001: PLLI2SN = 193
+011000010: PLLI2SN = 194
+...
+110110000: PLLI2SN = 432
+110110000: PLLI2SN = 433, wrong configuration
+...
+111111111: PLLI2SN = 511, wrong configuration</Description>
+          <EndBit>14</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>PLLSAICFGR</Name>
+      <Description>RCC PLL configuration register
+This register is used to configure the PLLSAI clock outputs according to the formulas:
+• f(VCO clock) = f(PLLSAI clock input) × (PLLSAIN / PLLM)
+• f(PLLSAI1 clock output) = f(VCO clock) / PLLSAIQ
+• f(PLL LCD clock output) = f(VCO clock) / PLLSAIR</Description>
+      <Offset>0x88</Offset>
+      <ResetValue>0x24003000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PLLSAIR</Name>
+          <Description>PLLSAI division factor for LCD clock 
+Set and reset by software to control the LCD clock frequency.
+These bits should be written when the PLLSAI is disabled.
+LCD clock frequency = VCO frequency / PLLSAIR with 2 ≤ PLLSAIR ≤ 7
+000: PLLSAIR = 0, wrong configuration
+001: PLLSAIR = 1, wrong configuration
+010: PLLSAIR = 2
+...
+111: PLLSAIR = 7</Description>
+          <EndBit>30</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIQ</Name>
+          <Description>PLLSAI division factor for SAI1 clock 
+Set and reset by software to control the frequency of SAI1 clock.
+These bits should be written when the PLLSAI is disabled.
+SAI1 clock frequency = VCO frequency / PLLSAIQ with 2 ≤ PLLSAIQ ≤15
+0000: PLLSAIQ = 0, wrong configuration
+0001: PLLSAIQ = 1, wrong configuration
+...
+0010: PLLSAIQ = 2
+0011: PLLSAIQ = 3
+0100: PLLSAIQ = 4
+0101: PLLSAIQ = 5
+...
+1111: PLLSAIQ = 15</Description>
+          <EndBit>27</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIN</Name>
+          <Description>PLLSAI division factor for VCO 
+Set and reset by software to control the multiplication factor of the VCO.
+These bits should be written when the PLLSAI is disabled.
+Only half-word and word accesses are allowed to write these bits.
+VCO output frequency = VCO input frequency x PLLSAIN with 49 ≤ PLLSAIN ≤ 432
+000000000: PLLSAIN = 0, wrong configuration
+000000001: PLLSAIN = 1, wrong configuration
+......
+000110000: PLLSAIN = 48, wrong configuration
+000110001: PLLSAIN = 49
+...
+011000000: PLLSAIN = 192
+011000001: PLLSAIN = 193
+...
+110110000: PLLSAIN = 432
+110110000: PLLSAIN = 433, wrong configuration
+...
+111111111: PLLSAIN = 511, wrong configuration</Description>
+          <EndBit>14</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>DCKCFGR</Name>
+      <Description>RCC Dedicated Clock Configuration Register
+The RCC_DCKCFGR register allows to configure the timer clock prescalers and the PLLSAI
+and PLLI2S output clock dividers for SAI1 and LTDC peripherals according to the following
+formula:
+f(PLLSAIDIVQ clock output) = f(PLLSAI_Q) / PLLSAIDIVQ
+f(PLLSAIDIVR clock output) = f(PLLSAI_R) / PLLSAIDIVR
+f(PLLI2SDIVQ clock output) = f(PLLI2S_Q) / PLLI2SDIVQ</Description>
+      <Offset>0x8C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>TIMPRE</Name>
+          <Description>Timers clocks prescalers selection 
+This bit is set and reset by software to control the clock frequency of all the timers connected
+to APB1 and APB2 domain.
+0: If the APB prescaler (PPRE1, PPRE2 in the RCC_CFGR register) is configured to a
+division factor of 1, TIMxCLK = PCLKx. Otherwise, the timer clock frequencies are set to
+twice to the frequency of the APB domain to which the timers are connected:
+TIMxCLK = 2xPCLKx.
+1:If the APB prescaler (PPRE1, PPRE2 in the RCC_CFGR register) is configured to a
+division factor of 1, 2 or 4, TIMxCLK = HCLK. Otherwise, the timer clock frequencies are set
+to four times to the frequency of the APB domain to which the timers are connected:
+TIMxCLK = 4xPCLKx.</Description>
+          <EndBit>24</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SAI1BSRC</Name>
+          <Description>SAI1-B clock source selection 
+These bits are set and cleared by software to control the SAI1-B clock frequency.
+They should be written when the PLLSAI and PLLI2S are disabled.
+00: SAI1-B clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ
+01: SAI1-B clock frequency = f(PLLI2S_Q) / PLLI2SDIVQ
+10: SAI1-B clock frequency = Alternate function input frequency
+11: wrong configuration</Description>
+          <EndBit>23</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>SAI1ASRC</Name>
+          <Description>SAI1-A clock source selection 
+These bits are set and cleared by software to control the SAI1-A clock frequency.
+They should be written when the PLLSAI and PLLI2S are disabled.
+00: SAI1-A clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ
+01: SAI1-A clock frequency = f(PLLI2S_Q) / PLLI2SDIVQ
+10: SAI1-A clock frequency = Alternate function input frequency
+11: wrong configuration</Description>
+          <EndBit>21</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIDIVR</Name>
+          <Description>division factor for LCD_CLK 
+These bits are set and cleared by software to control the frequency of LCD_CLK.
+They should be written only if PLLSAI is disabled.
+LCD_CLK frequency = f(PLLSAI_R) / PLLSAIDIVR with 2 ≤ PLLSAIDIVR ≤ 16
+00: PLLSAIDIVR = /2
+01: PLLSAIDIVR = /4
+10: PLLSAIDIVR = /8
+11: PLLSAIDIVR = /16</Description>
+          <EndBit>17</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLSAIDIVQ</Name>
+          <Description>PLLSAI division factor for SAI1 clock 
+These bits are set and reset by software to control the SAI1 clock frequency.
+They should be written only if PLLSAI is disabled.
+SAI1 clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ with 1 ≤ PLLSAIDIVQ ≤ 31
+00000: PLLSAIDIVQ = /1
+00001: PLLSAIDIVQ = /2
+00010: PLLSAIDIVQ = /3
+00011: PLLSAIDIVQ = /4
+00100: PLLSAIDIVQ = /5
+...
+11111: PLLSAIDIVQ = /32</Description>
+          <EndBit>12</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PLLI2SDIVQ</Name>
+          <Description>PLLI2S division factor for SAI1 clock 
+These bits are set and reset by software to control the SAI1 clock frequency.
+They should be written only if PLLI2S is disabled.
+SAI1 clock frequency = f(PLLI2S_Q) / PLLI2SDIVQ with 1 &lt;= PLLI2SDIVQ &lt;= 31
+00000: PLLI2SDIVQ = /1
+00001: PLLI2SDIVQ = /2
+00010: PLLI2SDIVQ = /3
+00011: PLLI2SDIVQ = /4
+00100: PLLI2SDIVQ = /5
+...
+11111: PLLI2SDIVQ = /32</Description>
+          <EndBit>4</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    
+  </Registers>
+</Peripheral>

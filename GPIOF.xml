@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright © 2015 Michael V. Franklin
+     
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this file.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<Peripheral>
+  <Name>GPIOF</Name>
+  <Description>GPIOF Peripheral</Description>
+  <Offset>0x00001400</Offset>
+  <Registers>
+    <Register>
+      <Name>MODER</Name>
+      <Description>GPIO port mode register</Description>
+      <Offset>0x00</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>MODER15</Name>
+          <Description>Port 15 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>31</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER14</Name>
+          <Description>Port 14 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>29</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER13</Name>
+          <Description>Port 13 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>27</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER12</Name>
+          <Description>Port 12 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>25</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER11</Name>
+          <Description>Port 11 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>23</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER10</Name>
+          <Description>Port 10 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>21</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER9</Name>
+          <Description>Port 9 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>19</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER8</Name>
+          <Description>Port 8 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>17</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER7</Name>
+          <Description>Port 7 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>15</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER6</Name>
+          <Description>Port 6 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>13</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER5</Name>
+          <Description>Port 5 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>11</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER4</Name>
+          <Description>Port 4 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>9</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER3</Name>
+          <Description>Port 3 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>7</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER2</Name>
+          <Description>Port 2 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>5</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER1</Name>
+          <Description>Port 1 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>3</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MODER0</Name>
+          <Description>Port 0 
+These bits are written by software to configure the I/O direction mode.
+00: Input (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode</Description>
+          <EndBit>1</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>OTYPER</Name>
+      <Description>GPIO port output type register</Description>
+      <Offset>0x04</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OT15</Name>
+          <Description>Port 15 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT14</Name>
+          <Description>Port 14 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT13</Name>
+          <Description>Port 13 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT12</Name>
+          <Description>Port 12 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT11</Name>
+          <Description>Port 11 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT10</Name>
+          <Description>Port 10 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT9</Name>
+          <Description>Port 9 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT8</Name>
+          <Description>Port 8 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT7</Name>
+          <Description>Port 7 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT6</Name>
+          <Description>Port 6 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT5</Name>
+          <Description>Port 5 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT4</Name>
+          <Description>Port 4 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT3</Name>
+          <Description>Port 3 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT2</Name>
+          <Description>Port 2 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT1</Name>
+          <Description>Port 1 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OT0</Name>
+          <Description>Port 0 configuration bits 
+These bits are written by software to configure the output type of the I/O port.
+0: Output push-pull (reset state)
+1: Output open-drain</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>OSPEEDR</Name>
+      <Description>GPIO port output speed register</Description>
+      <Offset>0x08</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>OSPEEDR15</Name>
+          <Description>Port 15 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR14</Name>
+          <Description>Port 14 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>29</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR13</Name>
+          <Description>Port 13 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR12</Name>
+          <Description>Port 12 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>25</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR11</Name>
+          <Description>Port 11 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>23</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR10</Name>
+          <Description>Port 10 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>21</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR9</Name>
+          <Description>Port 9 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>19</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR8</Name>
+          <Description>Port 8 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>17</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR7</Name>
+          <Description>Port 7 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR6</Name>
+          <Description>Port 6 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>13</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR5</Name>
+          <Description>Port 5 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR4</Name>
+          <Description>Port 4 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>9</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR3</Name>
+          <Description>Port 3 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR2</Name>
+          <Description>Port 2 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>5</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR1</Name>
+          <Description>Port 1 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>OSPEEDR0</Name>
+          <Description>Port 0 configuration bits 
+These bits are written by software to configure the I/O output speed.
+00: Low speed
+01: Medium speed
+10: Fast speed
+11: High speed
+Note: Refer to the product datasheets for the values of OSPEEDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+
+    <Register>
+      <Name>PUPDR</Name>
+      <Description>GPIO port pull-up/pull-down register</Description>
+      <Offset>0x0C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PUPDR15</Name>
+          <Description>Port 15 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR14</Name>
+          <Description>Port 14 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>29</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR13</Name>
+          <Description>Port 13 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR12</Name>
+          <Description>Port 12 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>25</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR11</Name>
+          <Description>Port 11 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>23</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR10</Name>
+          <Description>Port 10 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>21</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR9</Name>
+          <Description>Port 9 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>19</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR8</Name>
+          <Description>Port 8 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>17</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR7</Name>
+          <Description>Port 7 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR6</Name>
+          <Description>Port 6 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>13</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR5</Name>
+          <Description>Port 5 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR4</Name>
+          <Description>Port 4 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>9</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR3</Name>
+          <Description>Port 3 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR2</Name>
+          <Description>Port 2 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>5</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR1</Name>
+          <Description>Port 1 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PUPDR0</Name>
+          <Description>Port 0 configuration bits 
+These bits are written by software to configure the I/O pull-up or pull-down
+00: No pull-up, pull-down
+01: Pull-up
+10: Pull-down
+11: Reserved
+Note: Refer to the product datasheets for the values of PUPDRy bits versus VDD
+range and external load.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>IDR</Name>
+      <Description>GPIO port input data register</Description>
+      <Offset>0x10</Offset>
+      <ResetValue>0x0000XXXX</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>IDR15</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR14</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR13</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR12</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR11</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR10</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR9</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR8</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR7</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR6</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR5</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR4</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR3</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR2</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR1</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IDR0</Name>
+          <Description>Port input data 
+These bits are read-only and can be accessed in word mode only. They contain the input
+value of the corresponding I/O port.</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>ODR</Name>
+      <Description>GPIO port output data register</Description>
+      <Offset>0x14</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>ODR15</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR14</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR13</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR12</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR11</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR10</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR9</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR8</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR7</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR6</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR5</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR4</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR3</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR2</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR1</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ODR0</Name>
+          <Description>Port output data 
+These bits can be read and written by software.
+Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the BSRR register.</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>BSRR</Name>
+      <Description>GPIO port bit set/reset register</Description>
+      <Offset>0x18</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>BR15</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR14</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR13</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR12</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR11</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>27</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR10</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>26</EndBit>
+          <StartBit>26</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR9</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>25</EndBit>
+          <StartBit>25</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR8</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>24</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR7</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR6</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>22</EndBit>
+          <StartBit>22</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR5</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>21</EndBit>
+          <StartBit>21</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR4</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>20</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR3</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>19</EndBit>
+          <StartBit>19</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR2</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>18</EndBit>
+          <StartBit>18</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR1</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>17</EndBit>
+          <StartBit>17</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BR0</Name>
+          <Description>Port reset bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Resets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS15</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS14</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS13</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS12</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS11</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit 
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS10</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS9</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS8</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS7</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS6</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS5</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS4</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS3</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS2</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS1</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BS0</Name>
+          <Description>Port set bit 
+These bits are write-only and can be accessed in word, half-word or byte mode. A read to these bits returns the value 0x0000.
+0: No action on the corresponding ODR bit
+1: Sets the corresponding ODR bit
+Note: If both BS and BR are set, BS has priority.</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>LCKR</Name>
+      <Description>GPIO port configuration lock register
+This register is used to lock the configuration of the port bits when a correct write sequence
+is applied to bit 16 (LCKK). The value of bits [15:0] is used to lock the configuration of the
+GPIO. During the write sequence, the value of LCKR[15:0] must not change. When the
+LOCK sequence has been applied on a port bit, the value of this port bit can no longer be
+modified until the next reset.
+Note: A specific write sequence is used to write to the GPIOx_LCKR register. Only word access
+(32-bit long) is allowed during this write sequence.
+Each lock bit freezes a specific configuration register (control and alternate function
+registers).</Description>
+      <Offset>0x1C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LCKK</Name>
+          <Description>Lock key 
+This bit can be read any time. It can only be modified using the lock key write sequence.
+0: Port configuration lock key not active
+1: Port configuration lock key active. The GPIOx_LCKR register is locked until an MCU reset
+occurs.
+LOCK key write sequence:
+WR LCKR[16] = ‘1’ + LCKR[15:0]
+WR LCKR[16] = ‘0’ + LCKR[15:0]
+WR LCKR[16] = ‘1’ + LCKR[15:0]
+RD LCKR
+RD LCKR[16] = ‘1’ (this read operation is optional but it confirms that the lock is active)
+Note: During the LOCK key write sequence, the value of LCK[15:0] must not change.
+Any error in the lock sequence aborts the lock.
+After the first lock sequence on any bit of the port, any read access on the LCKK bit will
+return ‘1’ until the next CPU reset.</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK15</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>15</EndBit>
+          <StartBit>15</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK14</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>14</EndBit>
+          <StartBit>14</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK13</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>13</EndBit>
+          <StartBit>13</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK12</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>12</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK11</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>11</EndBit>
+          <StartBit>11</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK10</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>10</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK9</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>9</EndBit>
+          <StartBit>9</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK8</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK7</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>7</EndBit>
+          <StartBit>7</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK6</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>6</EndBit>
+          <StartBit>6</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK5</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>5</EndBit>
+          <StartBit>5</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK4</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK3</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK2</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK1</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LCK0</Name>
+          <Description>Port lock bit 
+These bits are read/write but can only be written when the LCKK bit is ‘0.
+0: Port configuration not locked
+1: Port configuration locked</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AFRL</Name>
+      <Description>GPIO alternate function low register</Description>
+      <Offset>0x20</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>AFRL7</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>31</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL6</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>27</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL5</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>23</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL4</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>19</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL3</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL2</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL1</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRL0</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>3</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AFRH</Name>
+      <Description>GPIO alternate function high register</Description>
+      <Offset>0x24</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>AFRH15</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>31</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH14</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>27</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH13</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>23</EndBit>
+          <StartBit>20</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH12</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>19</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH11</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH10</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH9</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AFRH8</Name>
+          <Description>Alternate function selection 
+These bits are written by software to configure alternate function I/Os
+0000: AF0
+0001: AF1
+0010: AF2
+0011: AF3
+0100: AF4
+0101: AF5
+0110: AF6
+0111: AF7
+1000: AF8
+1001: AF9
+1010: AF10
+1011: AF11
+1100: AF12
+1101: AF13
+1110: AF14
+1111: AF15</Description>
+          <EndBit>3</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+  </Registers>
+</Peripheral>
