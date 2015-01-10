@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright © 2015 Michael V. Franklin
+     
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this file.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<Peripheral>
+  <Name>SYSCFG</Name>
+  <Description>System configuration controller</Description>
+  <Offset>0x00000040</Offset>
+  <Registers>
+    <Register>
+      <Name>MEMRMP</Name>
+      <Description>SYSCFG memory remap register
+This register is used for specific configurations on memory remap:
+• Three bits are used to configure the type of memory accessible at address
+0x0000 0000. These bits are used to select the physical remap by software and so,
+bypass the BOOT pins.
+• After reset these bits take the value selected by the BOOT pins. When booting from
+main Flash memory with BOOT pins set to 10 [(BOOT1,BOOT0) = (1,0)] this register
+takes the value 0x00.
+• Other bits are used to swap FMC SDRAM Bank 1/2 with FMC Bank 3/4 and configure
+the Flash Bank 1/2 mapping
+There are two possible FMC remap at address 0x0000 0000:
+• FMC Bank 1 (NOR/PSRAM 1 and 2) remap:
+Only the first two regions of Bank 1 memory controller (Bank1 NOR/PSRAM 1 and
+NOR/PSRAM 2) can be remapped.
+• FMC SDRAM Bank 1 remap.
+In remap mode at address 0x0000 0000, the CPU can access the external memory via
+ICode bus instead of System bus which boosts up the performance.
+Note: Booting from NOR Flash memory or SDRAM is not allowed. The regions can only be
+mapped at 0x0000 0000 through software remap.</Description>
+      <Offset>0x00</Offset>
+      <ResetValue>0x0000000X</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>SWP_FMC</Name>
+          <Description>FMC memory mapping swap 
+Set and cleared by software. These bits are used to swap the FMC SDRAM
+Bank 1/2 and FMC Bank 3/4 (SDRAM Bank 1/2 and NAND Bank 2/PCCARD
+Bank) in order to enable the code execution from SDRAM Banks without a
+physical remapping at 0x0000 0000 address.
+00: No FMC memory mapping swap
+01: SDRAM banks and NAND Bank 2/PCCARD mapping are swapped. SDRAM
+Bank 1 and 2 are mapped at NAND Bank 2 (0x8000 0000) and PCCARD Bank
+(0x9000 0000) address, respectively. NAND Bank 2 and PCCARD Bank are
+mapped at 0xC000 0000 and 0xD000 0000, respectively.
+10: Reserved
+11: Reserved</Description>
+          <EndBit>11</EndBit>
+          <StartBit>10</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>FB_MODE</Name>
+          <Description>Flash Bank mode selection 
+Set and cleared by software. This bit controls the Flash Bank 1/2 mapping.
+0: Flash Bank 1 is mapped at 0x0800 0000 (and aliased at 0x0000 0000) and
+Flash Bank 2 is mapped at 0x0810 0000 (and aliased at 0x0010 0000)
+1: Flash Bank 2 is mapped at 0x0800 0000 (and aliased at 0x0000 0000) and
+Flash Bank 1 is mapped at 0x0810 0000 (and aliased at 0x0010 0000)</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>MEM_MODE</Name>
+          <Description>Memory mapping selection 
+Set and cleared by software. This bit controls the memory internal mapping at
+address 0x0000 0000. After reset these bits take the value selected by the Boot
+pins (except for FMC).
+000: Main Flash memory mapped at 0x0000 0000
+001: System Flash memory mapped at 0x0000 0000
+010: FMC Bank1 (NOR/PSRAM 1 and 2) mapped at 0x0000 0000
+011: Embedded SRAM (SRAM1) mapped at 0x0000 0000
+100: FMC/SDRAM Bank 1 mapped at 0x0000 0000
+Other configurations are reserved
+Note: Refer to Section 2.3: Memory map for details about the memory mapping at
+address 0x0000 0000.</Description>
+          <EndBit>2</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>PMC</Name>
+      <Description>SYSCFG peripheral mode configuration register</Description>
+      <Offset>0x04</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>MII_RMII_SEL</Name>
+          <Description>Ethernet PHY interface selection 
+Set and Cleared by software.These bits control the PHY interface for the
+Ethernet MAC.
+0: MII interface is selected
+1: RMII PHY interface is selected
+Note: This configuration must be done while the MAC is under reset and before
+enabling the MAC clocks.</Description>
+          <EndBit>23</EndBit>
+          <StartBit>23</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>ADCxDC2</Name>
+          <Description>
+0: No effect.
+1: Refer to AN4073 on how to use this bit.
+Note: These bits can be set only if the following conditions are met:
+- ADC clock higher or equal to 30 MHz.
+- Only one ADCxDC2 bit must be selected if ADC conversions do not start
+at the same time and the sampling times differ.
+- These bits must not be set when the ADCDC1 bit is set in PWR_CR
+register.</Description>
+          <EndBit>18</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>EXTICR1</Name>
+      <Description>SYSCFG external interrupt configuration register 1</Description>
+      <Offset>0x08</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>EXT3</Name>
+          <Description>EXTI3configuration 
+These bits are written by software to select the source input for the EXTI3
+external interrupt.
+0000: PA7 pin
+0001: PB7 pin
+0010: PC7 pin
+0011: PD7 pin
+0100: PE7 pin
+0101: PF7 pin
+0110: PG7 pin
+0111: PH7 pin
+1000: PI7 pin
+1001: PJ7 pin
+1010: PK7 pin</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT2</Name>
+          <Description>EXTI2 configuration 
+These bits are written by software to select the source input for the EXTI2
+external interrupt.
+0000: PA6 pin
+0001: PB6 pin
+0010: PC6 pin
+0011: PD6 pin
+0100: PE6 pin
+0101: PF6 pin
+0110: PG6 pin
+0111: PH6 pin
+1000: PI6 pin
+1001: PJ6 pin
+1010: PK6 pin</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT1</Name>
+          <Description>EXTI1 configuration 
+These bits are written by software to select the source input for the EXTI1
+external interrupt.
+0000: PA5 pin
+0001: PB5 pin
+0010: PC5 pin
+0011: PD5 pin
+0100: PE5 pin
+0101: PF5 pin
+0110: PG5 pin
+0111: PH5 pin
+1000: PI5 pin
+1001: PJ5 pin
+1010: PK5 pin</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT0</Name>
+          <Description>EXTI0 configuration 
+These bits are written by software to select the source input for the EXTI0
+external interrupt.
+0000: PA4 pin
+0001: PB4 pin
+0010: PC4 pin
+0011: PD4 pin
+0100: PE4 pin
+0101: PF4 pin
+0110: PG4 pin
+0111: PH4 pin
+1000: PI4 pin
+1001: PJ4 pin
+1010: PK4 pin</Description>
+          <EndBit>3</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>EXTICR2</Name>
+      <Description>SYSCFG external interrupt configuration register 2</Description>
+      <Offset>0x0C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>EXT7</Name>
+          <Description>EXTI7 configuration 
+These bits are written by software to select the source input for the EXTI7
+external interrupt.
+0000: PA7 pin
+0001: PB7 pin
+0010: PC7 pin
+0011: PD7 pin
+0100: PE7 pin
+0101: PF7 pin
+0110: PG7 pin
+0111: PH7 pin
+1000: PI7 pin
+1001: PJ7 pin
+1010: PK7 pin</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT6</Name>
+          <Description>EXTI6 configuration 
+These bits are written by software to select the source input for the EXTI6
+external interrupt.
+0000: PA6 pin
+0001: PB6 pin
+0010: PC6 pin
+0011: PD6 pin
+0100: PE6 pin
+0101: PF6 pin
+0110: PG6 pin
+0111: PH6 pin
+1000: PI6 pin
+1001: PJ6 pin
+1010: PK6 pin</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT5</Name>
+          <Description>EXTI5 configuration 
+These bits are written by software to select the source input for the EXTI5
+external interrupt.
+0000: PA5 pin
+0001: PB5 pin
+0010: PC5 pin
+0011: PD5 pin
+0100: PE5 pin
+0101: PF5 pin
+0110: PG5 pin
+0111: PH5 pin
+1000: PI5 pin
+1001: PJ5 pin
+1010: PK5 pin</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT4</Name>
+          <Description>EXTI4 configuration 
+These bits are written by software to select the source input for the EXTI4
+external interrupt.
+0000: PA4 pin
+0001: PB4 pin
+0010: PC4 pin
+0011: PD4 pin
+0100: PE4 pin
+0101: PF4 pin
+0110: PG4 pin
+0111: PH4 pin
+1000: PI4 pin
+1001: PJ4 pin
+1010: PK4 pin</Description>
+          <EndBit>3</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>EXTICR3</Name>
+      <Description>SYSCFG external interrupt configuration register 3</Description>
+      <Offset>0x10</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>EXT5</Name>
+          <Description>EXTI5 configuration 
+These bits are written by software to select the source input for the EXTI5
+external interrupt.
+0000: PA7 pin
+0001: PB7 pin
+0010: PC7 pin
+0011: PD7 pin
+0100: PE7 pin
+0101: PF7 pin
+0110: PG7 pin
+0111: PH7 pin
+1000: PI7 pin
+1001: PJ7 pin
+Note: PK is not used.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT4</Name>
+          <Description>EXTI4 configuration 
+These bits are written by software to select the source input for the EXTI4
+external interrupt.
+0000: PA6 pin
+0001: PB6 pin
+0010: PC6 pin
+0011: PD6 pin
+0100: PE6 pin
+0101: PF6 pin
+0110: PG6 pin
+0111: PH6 pin
+1000: PI6 pin
+1001: PJ6 pin
+Note: PK is not used.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT3</Name>
+          <Description>EXTI3 configuration 
+These bits are written by software to select the source input for the EXTI3
+external interrupt.
+0000: PA5 pin
+0001: PB5 pin
+0010: PC5 pin
+0011: PD5 pin
+0100: PE5 pin
+0101: PF5 pin
+0110: PG5 pin
+0111: PH5 pin
+1000: PI5 pin
+1001: PJ5 pin
+Note: PK is not used.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT2</Name>
+          <Description>EXTI2 configuration 
+These bits are written by software to select the source input for the EXTI2
+external interrupt.
+0000: PA4 pin
+0001: PB4 pin
+0010: PC4 pin
+0011: PD4 pin
+0100: PE4 pin
+0101: PF4 pin
+0110: PG4 pin
+0111: PH4 pin
+1000: PI4 pin
+1001: PJ4 pin
+Note: PK is not used.</Description>
+          <EndBit>3</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+     <Register>
+      <Name>EXTICR4</Name>
+      <Description>SYSCFG external interrupt configuration register 4</Description>
+      <Offset>0x14</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>EXT15</Name>
+          <Description>EXTI15configuration 
+These bits are written by software to select the source input for the EXTI15
+external interrupt.
+0000: PA7 pin
+0001: PB7 pin
+0010: PC7 pin
+0011: PD7 pin
+0100: PE7 pin
+0101: PF7 pin
+0110: PG7 pin
+0111: PH7 pin
+1000: PI7 pin
+1001: PJ7 pin
+Note: PK is not used.</Description>
+          <EndBit>15</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT14</Name>
+          <Description>EXTI14 configuration 
+These bits are written by software to select the source input for the EXTI14
+external interrupt.
+0000: PA6 pin
+0001: PB6 pin
+0010: PC6 pin
+0011: PD6 pin
+0100: PE6 pin
+0101: PF6 pin
+0110: PG6 pin
+0111: PH6 pin
+1000: PI6 pin
+1001: PJ6 pin
+Note: PK is not used.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>EXT13</Name>
+          <Description>EXTI13 configuration 
+These bits are written by software to select the source input for the EXTI13
+external interrupt.
+0000: PA5 pin
+0001: PB5 pin
+0010: PC5 pin
+0011: PD5 pin
+0100: PE5 pin
+0101: PF5 pin
+0110: PG5 pin
+0111: PH5 pin
+1000: PI5 pin
+1001: PJ5 pin
+1010: PK5 pin
+Note: PK is not used.
+These bits are written by software to select the source input for the EXTI12
+external interrupt.
+0000: PA4 pin
+0001: PB4 pin
+0010: PC4 pin
+0011: PD4 pin
+0100: PE4 pin
+0101: PF4 pin
+0110: PG4 pin
+0111: PH4 pin
+1000: PI4 pin
+1001: PJ4 pin
+Note: PK is not used.</Description>
+          <EndBit>7</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CMPCR</Name>
+      <Description>Compensation cell control register</Description>
+      <Offset>0x20</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>READY</Name>
+          <Description>Compensation cell ready flag 
+0: I/O compensation cell not ready
+1: O compensation cell ready</Description>
+          <EndBit>8</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CMP_PD</Name>
+          <Description>Compensation cell power-down 
+0: I/O compensation cell power-down mode
+1: I/O compensation cell enabled</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+  </Registers>
+</Peripheral>
