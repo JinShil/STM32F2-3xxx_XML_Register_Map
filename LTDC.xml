@@ -241,8 +241,8 @@ This bit is set and cleared by software.
       <Name>SRCR</Name>
       <Description>LTDC Shadow Reload Configuration Register
 This register allows to reload either immediately or during the vertical blanking period, the
-shadow registers values to the active registers. The shadow registers are all Layer1 and
-Layer2 registers except the LTDC_L1CLUTWR and the LTDC_L2CLUTWR.
+shadow registers values to the active registers. The shadow registers are all Layer 1 and
+Layer 2 registers except the LTDC_L1CLUTWR and the LTDC_L2CLUTWR.
 Note: The shadow registers read back the active values. Until the reload has been done, the 'old'
 value will be read.</Description>
       <Offset>0x24</Offset>
@@ -551,6 +551,846 @@ is active high.</Description>
           <EndBit>0</EndBit>
           <StartBit>0</StartBit>
           <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CR</Name>
+      <Description>LTDC Layer 1 Control Register</Description>
+      <Offset>0x84</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CLUTEN</Name>
+          <Description>Color Look-Up Table Enable 
+This bit is set and cleared by software.
+0: Color Look-Up Table disable
+1: Color Look-Up Table enable
+The CLUT is only meaningful for L8, AL44 and AL88 pixel format. Refer to Color Look-Up
+Table (CLUT) on page 484</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>COLKEN</Name>
+          <Description>Color Keying Enable 
+This bit is set and cleared by software.
+0: Color Keying disable
+1: Color Keying enable</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LEN</Name>
+          <Description>Layer Enable 
+This bit is set and cleared by software.
+0: Layer disable
+1: Layer enable</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CR</Name>
+      <Description>LTDC Layer 2 Control Register</Description>
+      <Offset>0x0104</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CLUTEN</Name>
+          <Description>Color Look-Up Table Enable 
+This bit is set and cleared by software.
+0: Color Look-Up Table disable
+1: Color Look-Up Table enable
+The CLUT is only meaningful for L8, AL44 and AL88 pixel format. Refer to Color Look-Up
+Table (CLUT) on page 484</Description>
+          <EndBit>4</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>COLKEN</Name>
+          <Description>Color Keying Enable 
+This bit is set and cleared by software.
+0: Color Keying disable
+1: Color Keying enable</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LEN</Name>
+          <Description>Layer Enable 
+This bit is set and cleared by software.
+0: Layer disable
+1: Layer enable</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1WHPCR</Name>
+      <Description>LTDC Layer 1 Window Horizontal Position Configuration Register
+This register defines the Horizontal Position (first and last pixel) of the layer 1 or 2 window.
+The first visible pixel of a line is the programmed value of AHBP[10:0] bits + 1 in the
+LTDC_BPCR register.
+Example:
+The LTDC_BPCR register is configured to 0x000E0005(AHBP[11:0] is 0xE) and the
+LTDC_AWCR register is configured to 0x028E01E5(AAW[11:0] is 0x28E). To configure the
+horizontal position of a window size of 630x460, with horizontal start offset of 5 pixels in the
+Active data area.
+1. Layer window first pixel: WHSTPOS[11:0] should be programmed to 0x14 (0xE+1+0x5)
+2. Layer window last pixel: WHSPPOS[11:0] should be programmed to 0x28A
+The last visible pixel of a line is the programmed value of AAW[10:0] bits in the
+LTDC_AWCR register. All values within this range are allowed.</Description>
+      <Offset>0x88</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>WHSPPOS</Name>
+          <Description>Window Horizontal Stop Position 
+These bits configure the last visible pixel of a line of the layer window.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WHSTPOS</Name>
+          <Description>Window Horizontal Start Position 
+These bits configure the first visible pixel of a line of the layer window.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2WHPCR</Name>
+      <Description>LTDC Layer 2 Window Horizontal Position Configuration Register
+This register defines the Horizontal Position (first and last pixel) of the layer 1 or 2 window.
+The first visible pixel of a line is the programmed value of AHBP[10:0] bits + 1 in the
+LTDC_BPCR register.
+Example:
+The LTDC_BPCR register is configured to 0x000E0005(AHBP[11:0] is 0xE) and the
+LTDC_AWCR register is configured to 0x028E01E5(AAW[11:0] is 0x28E). To configure the
+horizontal position of a window size of 630x460, with horizontal start offset of 5 pixels in the
+Active data area.
+1. Layer window first pixel: WHSTPOS[11:0] should be programmed to 0x14 (0xE+1+0x5)
+2. Layer window last pixel: WHSPPOS[11:0] should be programmed to 0x28A
+The last visible pixel of a line is the programmed value of AAW[10:0] bits in the
+LTDC_AWCR register. All values within this range are allowed.</Description>
+      <Offset>0x0108</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>WHSPPOS</Name>
+          <Description>Window Horizontal Stop Position 
+These bits configure the last visible pixel of a line of the layer window.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WHSTPOS</Name>
+          <Description>Window Horizontal Start Position 
+These bits configure the first visible pixel of a line of the layer window.</Description>
+          <EndBit>11</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1WVPCR</Name>
+      <Description>LTDC Layer 1 Window Vertical Position Configuration Register
+This register defines the vertical position (first and last line) of the layer1 or 2 window.
+The first visible line of a frame is the programmed value of AVBP[10:0] bits + 1 in the
+register LTDC_BPCR register.
+The last visible line of a frame is the programmed value of AAH[10:0] bits in the
+LTDC_AWCR register. All values within this range are allowed.
+Example:
+The LTDC_BPCR register is configured to 0x000E0005 (AVBP[10:0] is 0x5) and the
+LTDC_AWCR register is configured to 0x028E01E5 (AAH[10:0] is 0x1E5). To configure the
+vertical position of a window size of 630x460, with vertical start offset of 8 lines in the Active
+data area:
+1. Layer window first line: WVSTPOS[10:0] should be programmed to 0xE (0x5 + 1 + 0x8)
+2. Layer window last line: WVSPPOS[10:0] should be programmed to 0x1DA</Description>
+      <Offset>0x8C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>WVSPPOS</Name>
+          <Description>Window Vertical Stop Position 
+These bits configures the last visible line of the layer window.</Description>
+          <EndBit>26</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WVSTPOS</Name>
+          <Description>Window Vertical Start Position 
+These bits configure the first visible line of the layer window.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2WVPCR</Name>
+      <Description>LTDC Layer 2 Window Vertical Position Configuration Register
+This register defines the vertical position (first and last line) of the layer1 or 2 window.
+The first visible line of a frame is the programmed value of AVBP[10:0] bits + 1 in the
+register LTDC_BPCR register.
+The last visible line of a frame is the programmed value of AAH[10:0] bits in the
+LTDC_AWCR register. All values within this range are allowed.
+Example:
+The LTDC_BPCR register is configured to 0x000E0005 (AVBP[10:0] is 0x5) and the
+LTDC_AWCR register is configured to 0x028E01E5 (AAH[10:0] is 0x1E5). To configure the
+vertical position of a window size of 630x460, with vertical start offset of 8 lines in the Active
+data area:
+1. Layer window first line: WVSTPOS[10:0] should be programmed to 0xE (0x5 + 1 + 0x8)
+2. Layer window last line: WVSPPOS[10:0] should be programmed to 0x1DA</Description>
+      <Offset>0x010C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>WVSPPOS</Name>
+          <Description>Window Vertical Stop Position 
+These bits configures the last visible line of the layer window.</Description>
+          <EndBit>26</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>WVSTPOS</Name>
+          <Description>Window Vertical Start Position 
+These bits configure the first visible line of the layer window.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CKCR</Name>
+      <Description>LTDC Layer 1 Color Keying Configuration Register
+This register defines the color key value (RGB), which is used by the Color Keying.</Description>
+      <Offset>0x90</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CKRED</Name>
+          <Description>Color Key Red value </Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CKGREEN</Name>
+          <Description>Color Key Green value </Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CKBLUE</Name>
+          <Description>Color Key Blue value </Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CKCR</Name>
+      <Description>LTDC Layer 2 Color Keying Configuration Register
+This register defines the color key value (RGB), which is used by the Color Keying.</Description>
+      <Offset>0x0110</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CKRED</Name>
+          <Description>Color Key Red value </Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CKGREEN</Name>
+          <Description>Color Key Green value </Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CKBLUE</Name>
+          <Description>Color Key Blue value </Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1PFCR</Name>
+      <Description>LTDC Layer 1 Pixel Format Configuration Register
+This register defines the pixel format which is used for the stored data in the frame buffer of
+a layer. The pixel data is read from the frame buffer and then transformed to the internal
+format 8888 (ARGB).</Description>
+      <Offset>0x94</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PF[2:0]</Name>
+          <Description>Pixel Format 
+These bits configures the Pixel format
+000: ARGB8888
+001: RGB888
+010: RGB565
+011: ARGB1555
+100: ARGB4444
+101: L8 (8-Bit Luminance)
+110: AL44 (4-Bit Alpha, 4-Bit Luminance)
+111: AL88 (8-Bit Alpha, 8-Bit Luminance)</Description>
+          <EndBit>2</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2PFCR</Name>
+      <Description>LTDC Layer 2 Pixel Format Configuration Register
+This register defines the pixel format which is used for the stored data in the frame buffer of
+a layer. The pixel data is read from the frame buffer and then transformed to the internal
+format 8888 (ARGB).</Description>
+      <Offset>0x0114</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>PF[2:0]</Name>
+          <Description>Pixel Format 
+These bits configures the Pixel format
+000: ARGB8888
+001: RGB888
+010: RGB565
+011: ARGB1555
+100: ARGB4444
+101: L8 (8-Bit Luminance)
+110: AL44 (4-Bit Alpha, 4-Bit Luminance)
+111: AL88 (8-Bit Alpha, 8-Bit Luminance)</Description>
+          <EndBit>2</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CACR</Name>
+      <Description>LTDC Layer 1 Constant Alpha Configuration Register
+This register defines the constant alpha value (divided by 255 by Hardware), which is used
+in the alpha blending. Refer to LTDC_L1BFCR register.</Description>
+      <Offset>0x98</Offset>
+      <ResetValue>0x000000FF</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CONSTA</Name>
+          <Description>Constant Alpha 
+These bits configure the Constant Alpha used for blending. The Constant Alpha is divided
+by 255 by hardware.
+Example: if the programmed Constant Alpha is 0xFF, the Constant Alpha value is
+255/255=1</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CACR</Name>
+      <Description>LTDC Layer 2 Constant Alpha Configuration Register
+This register defines the constant alpha value (divided by 255 by Hardware), which is used
+in the alpha blending. Refer to LTDC_L2BFCR register.</Description>
+      <Offset>0x0118</Offset>
+      <ResetValue>0x000000FF</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CONSTA</Name>
+          <Description>Constant Alpha 
+These bits configure the Constant Alpha used for blending. The Constant Alpha is divided
+by 255 by hardware.
+Example: if the programmed Constant Alpha is 0xFF, the Constant Alpha value is
+255/255=1</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1DCCR</Name>
+      <Description>LTDC Layer 1 Default Color Configuration Register
+This register defines the default color of a layer in the format ARGB. The default color is
+used outside the defined layer window or when a layer is disabled. The reset value of
+0x00000000 defines a transparent black color.</Description>
+      <Offset>0x9C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>DCALPHA</Name>
+          <Description>Default Color Alpha 
+These bits configure the default alpha value</Description>
+          <EndBit>31</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCRED</Name>
+          <Description>Default Color Red 
+These bits configure the default red value</Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCGREEN</Name>
+          <Description>Default Color Green 
+These bits configure the default green value</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCBLUE</Name>
+          <Description>Default Color Blue 
+These bits configure the default blue value</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2DCCR</Name>
+      <Description>LTDC Layer 2 Default Color Configuration Register
+This register defines the default color of a layer in the format ARGB. The default color is
+used outside the defined layer window or when a layer is disabled. The reset value of
+0x00000000 defines a transparent black color.</Description>
+      <Offset>0x011C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>DCALPHA</Name>
+          <Description>Default Color Alpha 
+These bits configure the default alpha value</Description>
+          <EndBit>31</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCRED</Name>
+          <Description>Default Color Red 
+These bits configure the default red value</Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCGREEN</Name>
+          <Description>Default Color Green 
+These bits configure the default green value</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DCBLUE</Name>
+          <Description>Default Color Blue 
+These bits configure the default blue value</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1BFCR</Name>
+      <Description>LTDC Layer 1 Blending Factors Configuration Register
+This register defines the default color of a layer in the format ARGB. The default color is
+used outside the defined layer window or when a layer is disabled. The reset value of
+0x00000000 defines a transparent black color.</Description>
+      <Offset>0xA0</Offset>
+      <ResetValue>0x00000607</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>BF1</Name>
+          <Description>Blending Factor 1 
+These bits select the blending factor F1
+000: Reserved
+001: Reserved
+010: Reserved
+011: Reserved
+100: Constant Alpha
+101: Reserved
+110: Pixel Alpha x Constant Alpha
+111:Reserved</Description>
+          <EndBit>10</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BF2</Name>
+          <Description>Blending Factor 2 
+These bits select the blending factor F2
+000: Reserved
+001: Reserved
+010: Reserved
+011: Reserved
+100: Reserved
+101: 1 - Constant Alpha
+110: Reserved
+111: 1 - (Pixel Alpha x Constant Alpha)</Description>
+          <EndBit>2</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2BFCR</Name>
+      <Description>LTDC Layer 2 Blending Factors Configuration Register
+This register defines the default color of a layer in the format ARGB. The default color is
+used outside the defined layer window or when a layer is disabled. The reset value of
+0x00000000 defines a transparent black color.</Description>
+      <Offset>0x0120</Offset>
+      <ResetValue>0x00000607</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>BF1</Name>
+          <Description>Blending Factor 1 
+These bits select the blending factor F1
+000: Reserved
+001: Reserved
+010: Reserved
+011: Reserved
+100: Constant Alpha
+101: Reserved
+110: Pixel Alpha x Constant Alpha
+111:Reserved</Description>
+          <EndBit>10</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BF2</Name>
+          <Description>Blending Factor 2 
+These bits select the blending factor F2
+000: Reserved
+001: Reserved
+010: Reserved
+011: Reserved
+100: Reserved
+101: 1 - Constant Alpha
+110: Reserved
+111: 1 - (Pixel Alpha x Constant Alpha)</Description>
+          <EndBit>2</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CFBAR</Name>
+      <Description>LTDC Layer 1 Color Frame Buffer Address Register
+This register defines the color frame buffer start address which has to point to the address
+where the pixel data of the top left pixel of a layer is stored in the frame buffer.</Description>
+      <Offset>0xAC</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBADD</Name>
+          <Description>Color Frame Buffer Start Address 
+These bits defines the color frame buffer start address.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CFBAR</Name>
+      <Description>LTDC Layer 2 Color Frame Buffer Address Register
+This register defines the color frame buffer start address which has to point to the address
+where the pixel data of the top left pixel of a layer is stored in the frame buffer.</Description>
+      <Offset>0x012C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBADD</Name>
+          <Description>Color Frame Buffer Start Address 
+These bits defines the color frame buffer start address.</Description>
+          <EndBit>31</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CFBLR</Name>
+      <Description>LTDC Layer 1 Color Frame Buffer Length Register
+This register defines the color frame buffer line length and pitch.
+Example:
+• A frame buffer having the format RGB565 (2 bytes per pixel) and a width of 256 pixels
+(total number of bytes per line is 256x2=512 bytes), where pitch = line length requires a
+value of 0x02000203 to be written into this register.
+• A frame buffer having the format RGB888 (3 bytes per pixel) and a width of 320 pixels
+(total number of bytes per line is 320x3=960), where pitch = line length requires a value
+of 0x03C003C3 to be written into this register.</Description>
+      <Offset>0xB0</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBP</Name>
+          <Description>Color Frame Buffer Pitch in bytes 
+These bits define the pitch which is the increment from the start of one line of pixels to the
+start of the next line in bytes.</Description>
+          <EndBit>28</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CFBLL</Name>
+          <Description>Color Frame Buffer Line Length 
+These bits define the length of one line of pixels in bytes + 3.
+The line length is computed as follows: Active high width x number of bytes per pixel + 3.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CFBLR</Name>
+      <Description>LTDC Layer 2 Color Frame Buffer Length Register
+This register defines the color frame buffer line length and pitch.
+Example:
+• A frame buffer having the format RGB565 (2 bytes per pixel) and a width of 256 pixels
+(total number of bytes per line is 256x2=512 bytes), where pitch = line length requires a
+value of 0x02000203 to be written into this register.
+• A frame buffer having the format RGB888 (3 bytes per pixel) and a width of 320 pixels
+(total number of bytes per line is 320x3=960), where pitch = line length requires a value
+of 0x03C003C3 to be written into this register.</Description>
+      <Offset>0x0130</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBP</Name>
+          <Description>Color Frame Buffer Pitch in bytes 
+These bits define the pitch which is the increment from the start of one line of pixels to the
+start of the next line in bytes.</Description>
+          <EndBit>28</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CFBLL</Name>
+          <Description>Color Frame Buffer Line Length 
+These bits define the length of one line of pixels in bytes + 3.
+The line length is computed as follows: Active high width x number of bytes per pixel + 3.</Description>
+          <EndBit>12</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CFBLNR</Name>
+      <Description>LTDC Layer 1 ColorFrame Buffer Line Number Register
+This register defines the number of lines in the color frame buffer.
+Note: The number of lines and line length settings define how much data is fetched per frame for
+every layer. If it is configured to less bytes than required, a FIFO underrun interrupt will be
+generated if enabled.
+The start address and pitch settings on the other hand define the correct start of every line in
+memory.</Description>
+      <Offset>0xB4</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBLNBR</Name>
+          <Description>Frame Buffer Line Number 
+These bits define the number of lines in the frame buffer which corresponds to the Active
+high width.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CFBLNR</Name>
+      <Description>LTDC Layer 2 ColorFrame Buffer Line Number Register
+This register defines the number of lines in the color frame buffer.
+Note: The number of lines and line length settings define how much data is fetched per frame for
+every layer. If it is configured to less bytes than required, a FIFO underrun interrupt will be
+generated if enabled.
+The start address and pitch settings on the other hand define the correct start of every line in
+memory.</Description>
+      <Offset>0x0134</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CFBLNBR</Name>
+          <Description>Frame Buffer Line Number 
+These bits define the number of lines in the frame buffer which corresponds to the Active
+high width.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L1CLUTWR</Name>
+      <Description>LTDC Layer 1 CLUT Write Register
+This register defines the CLUT address and the RGB value.
+Note: The CLUT write register should only be configured during blanking period or if the layer is
+disabled. The CLUT can be enabled or disabled in the LTDC_LxCR register.
+The CLUT is only meaningful for L8, AL44 and AL88 pixel format.</Description>
+      <Offset>0xC4</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CLUTADD</Name>
+          <Description>CLUT Address 
+These bits configure the CLUT address (color position within the CLUT) of each RGB
+value</Description>
+          <EndBit>31</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RED</Name>
+          <Description>Red value 
+These bits configure the red value</Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GREEN</Name>
+          <Description>Green value 
+These bits configure the green value</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BLUE</Name>
+          <Description>Blue value 
+These bits configure the blue value</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>L2CLUTWR</Name>
+      <Description>LTDC Layer 2 CLUT Write Register
+This register defines the CLUT address and the RGB value.
+Note: The CLUT write register should only be configured during blanking period or if the layer is
+disabled. The CLUT can be enabled or disabled in the LTDC_LxCR register.
+The CLUT is only meaningful for L8, AL44 and AL88 pixel format.</Description>
+      <Offset>0x0144</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CLUTADD</Name>
+          <Description>CLUT Address 
+These bits configure the CLUT address (color position within the CLUT) of each RGB
+value</Description>
+          <EndBit>31</EndBit>
+          <StartBit>24</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>RED</Name>
+          <Description>Red value 
+These bits configure the red value</Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>GREEN</Name>
+          <Description>Green value 
+These bits configure the green value</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BLUE</Name>
+          <Description>Blue value 
+These bits configure the blue value</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>w</Mutability>
         </BitField>
       </BitFields>
     </Register>
