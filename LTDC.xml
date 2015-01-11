@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peripheral>
+  <Name>LTDC</Name>
+  <Description>LCD-TFT Controller</Description>
+  <Offset>0x00000040</Offset>
+  <Registers>
+    <Register>
+      <Name>SSCR</Name>
+      <Description>LTDC Synchronization Size Configuration Register
+This register defines the number of Horizontal Synchronization pixels minus 1 and the
+number of Vertical Synchronization lines minus 1. Refer to Figure 82 and Section 16.4:
+LTDC programmable parameters for an example of configuration.</Description>
+      <Offset>0x08</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>HSW</Name>
+          <Description>Horizontal Synchronization Width (in units of pixel clock period) 
+These bits define the number of Horizontal Synchronization pixel minus 1.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>VSH</Name>
+          <Description>Vertical Synchronization Height (in units of horizontal scan line) 
+These bits define the vertical Synchronization height minus 1. It represents the
+number
+of horizontal synchronization lines.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>BPCR</Name>
+      <Description>LTDC Back Porch Configuration Register
+This register defines the accumulated number of Horizontal Synchronization and back porch
+pixels minus 1 (HSYNC Width + HBP- 1) and the accumulated number of Vertical
+Synchronization and back porch lines minus 1 (VSYNC Height + VBP - 1). Refer to
+Figure 82 and Section 16.4: LTDC programmable parameters for an example of
+configuration.</Description>
+      <Offset>0x0C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>AHBP</Name>
+          <Description>Accumulated Horizontal back porch (in units of pixel clock period) 
+These bits define the Accumulated Horizontal back porch width which includes the
+Horizontal Synchronization and Horizontal back porch pixels minus 1.
+The Horizontal back porch is the period between Horizontal Synchronization going
+inactive and the start of the active display part of the next scan line.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AVBP</Name>
+          <Description>Accumulated Vertical back porch (in units of horizontal scan line) 
+These bits define the accumulated Vertical back porch width which includes the Vertical
+Synchronization and Vertical back porch lines minus 1.
+The Vertical back porch is the number of horizontal scan lines at a start of frame to the
+start of the first active scan line of the next frame.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>AWCR</Name>
+      <Description>LTDC Active Width Configuration Register
+This register defines the accumulated number of Horizontal Synchronization, back porch
+and Active pixels minus 1 (HSYNC width + HBP + Active Width - 1) and the accumulated
+number of Vertical Synchronization, back porch lines and Active lines minus 1 (VSYNC
+Height+ BVBP + Active Height - 1). Refer to Figure 82 and Section 16.4: LTDC
+programmable parameters for an example of configuration.</Description>
+      <Offset>0x10</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>AAW</Name>
+          <Description>Accumulated Active Width (in units of pixel clock period) 
+These bits define the Accumulated Active Width which includes the Horizontal
+Synchronization, Horizontal back porch and Active pixels minus 1.
+The Active Width is the number of pixels in active display area of the panel scan line. The
+maximum Active Width supported is 0x400.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>AAH</Name>
+          <Description>Accumulated Active Height (in units of horizontal scan line) 
+These bits define the Accumulated Height which includes the Vertical Synchronization,
+Vertical back porch and the Active Height lines minus 1. The Active Height is the number
+of active lines in the panel. The maximum Active Height supported is 0x300.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>TWCR</Name>
+      <Description>LTDC Total Width Configuration Register
+This register defines the accumulated number of Horizontal Synchronization, back porch,
+Active and front porch pixels minus 1 (HSYNC Width + HBP + Active Width + HFP - 1) and
+the accumulated number of Vertical Synchronization, back porch lines, Active and Front
+lines minus 1 (VSYNC Height+ BVBP + Active Height + VFP - 1). Refer to Figure 82 and
+Section 16.4: LTDC programmable parameters for an example of configuration.</Description>
+      <Offset>0x14</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>TOTALW</Name>
+          <Description>Total Width (in units of pixel clock period) 
+These bits defines the accumulated Total Width which includes the Horizontal
+Synchronization, Horizontal back porch, Active Width and Horizontal front porch pixels
+minus 1.</Description>
+          <EndBit>27</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TOTALH</Name>
+          <Description>Total Height (in units of horizontal scan line) 
+These bits defines the accumulated Height which includes the Vertical Synchronization,
+Vertical back porch, the Active Height and Vertical front porch Height lines minus 1.</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>GCR</Name>
+      <Description>LTDC Global Control Register
+This register defines the global configuration of the LCD-TFT controller.</Description>
+      <Offset>0x18</Offset>
+      <ResetValue>0x00002220</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>HSPOL</Name>
+          <Description>Horizontal Synchronization Polarity 
+This bit is set and cleared by software.
+0: Horizontal Synchronization polarity is active low
+1: Horizontal Synchronization polarity is active high</Description>
+          <EndBit>31</EndBit>
+          <StartBit>31</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>VSPOL</Name>
+          <Description>Vertical Synchronization Polarity 
+This bit is set and cleared by software.
+0: Vertical Synchronization is active low
+1: Vertical Synchronization is active high</Description>
+          <EndBit>30</EndBit>
+          <StartBit>30</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DEPOL</Name>
+          <Description>Data Enable Polarity 
+This bit is set and cleared by software.
+0: Data Enable polarity is active low
+1: Data Enable polarity is active high</Description>
+          <EndBit>29</EndBit>
+          <StartBit>29</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>PCPOL</Name>
+          <Description>Pixel Clock Polarity 
+This bit is set and cleared by software.
+0: input pixel clock
+1: inverted input pixel clock</Description>
+          <EndBit>28</EndBit>
+          <StartBit>28</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DEN</Name>
+          <Description>Dither Enable 
+This bit is set and cleared by software.
+0: Dither disable
+1: Dither enable</Description>
+          <EndBit>16</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DRW[2:0]</Name>
+          <Description>Dither Red Width 
+These bits return the Dither Red Bits</Description>
+          <EndBit>14</EndBit>
+          <StartBit>12</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DGW[2:0]</Name>
+          <Description>Dither Green Width 
+These bits return the Dither Green Bits</Description>
+          <EndBit>10</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>DBW[2:0]</Name>
+          <Description>Dither Blue Width 
+These bits return the Dither Blue Bits</Description>
+          <EndBit>6</EndBit>
+          <StartBit>4</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LTDCEN</Name>
+          <Description>LCD-TFT controller enable bit 
+This bit is set and cleared by software.
+0: LTDC disable
+1: LTDC enable</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>SRCR</Name>
+      <Description>LTDC Shadow Reload Configuration Register
+This register allows to reload either immediately or during the vertical blanking period, the
+shadow registers values to the active registers. The shadow registers are all Layer1 and
+Layer2 registers except the LTDC_L1CLUTWR and the LTDC_L2CLUTWR.
+Note: The shadow registers read back the active values. Until the reload has been done, the 'old'
+value will be read.</Description>
+      <Offset>0x24</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>VBR</Name>
+          <Description>Vertical Blanking Reload 
+This bit is set by software and cleared only by hardware after reload. (it cannot
+be cleared through register write once it is set)
+0: No effect
+1: The shadow registers are reloaded during the vertical blanking period (at the
+beginning of the first line after the Active Display Area)</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>IMR</Name>
+          <Description>Immediate Reload 
+This bit is set by software and cleared only by hardware after reload.
+0: No effect
+1: The shadow registers are reloaded immediately</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>BCCR</Name>
+      <Description>LTDC Background Color Configuration Register
+This register defines the background color (RGB888).</Description>
+      <Offset>0x2C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>BCRED[7:0]</Name>
+          <Description>Background Color Red value 
+These bits configure the background red value</Description>
+          <EndBit>23</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BCGREEN[7:0]</Name>
+          <Description>Background Color Green value 
+These bits configure the background green value</Description>
+          <EndBit>15</EndBit>
+          <StartBit>8</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>BCBLUE[7:0]</Name>
+          <Description>Background Color Blue value 
+These bits configure the background blue value</Description>
+          <EndBit>7</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>IER</Name>
+      <Description>LTDC Interrupt Enable Register
+This register determines which status flags generate an interrupt request by setting the
+corresponding bit to 1.</Description>
+      <Offset>0x34</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>RRIE</Name>
+          <Description>Register Reload interrupt enable 
+This bit is set and cleared by software
+0: Register Reload interrupt disable
+1: Register Reload interrupt enable</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TERRIE</Name>
+          <Description>Transfer Error Interrupt Enable 
+This bit is set and cleared by software
+0: Transfer Error interrupt disable
+1: Transfer Error interrupt enable</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>FUIE</Name>
+          <Description>FIFO Underrun Interrupt Enable 
+This bit is set and cleared by software
+0: FIFO Underrun interrupt disable
+1: FIFO Underrun Interrupt enable</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LIE</Name>
+          <Description>Line Interrupt Enable 
+This bit is set and cleared by software
+0: Line interrupt disable
+1: Line Interrupt enable</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>ISR</Name>
+      <Description>LTDC Interrupt Status Register
+This register returns the interrupt status flag</Description>
+      <Offset>0x38</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>RRIF</Name>
+          <Description>Register Reload Interrupt Flag 
+0: No Register Reload interrupt generated
+1: Register Reload interrupt generated when a vertical blanking reload occurs (and the
+first line after the active area is reached)</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>TERRIF</Name>
+          <Description>Transfer Error interrupt flag 
+0: No Transfer Error interrupt generated
+1: Transfer Error interrupt generated when a Bus error occurs</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>FUIF</Name>
+          <Description>FIFO Underrun Interrupt flag 
+0: NO FIFO Underrun interrupt generated.
+1: A FIFO underrun interrupt is generated, if one of the layer FIFOs is empty and pixel
+data is read from the FIFO</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>LIF</Name>
+          <Description>Line Interrupt flag 
+0: No Line interrupt generated
+1: A Line interrupt is generated, when a programmed line is reached</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>ICR</Name>
+      <Description>LTDC Interrupt Clear Register</Description>
+      <Offset>0x3C</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CRRIF</Name>
+          <Description>Clears Register Reload Interrupt Flag 
+0: No effect
+1: Clears the RRIF flag in the LTDC_ISR register</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CTERRIF</Name>
+          <Description>Clears the Transfer Error Interrupt Flag 
+0: No effect
+1: Clears the TERRIF flag in the LTDC_ISR register.</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CFUIF</Name>
+          <Description>Clears the FIFO Underrun Interrupt flag 
+0: No effect
+1: Clears the FUDERRIF flag in the LTDC_ISR register.</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CLIF</Name>
+          <Description>Clears the Line Interrupt Flag 
+0: No effect
+1: Clears the LIF flag in the LTDC_ISR register.</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>w</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>LIPCR</Name>
+      <Description>LTDC Line Interrupt Position Configuration Register
+This register defines the position of the line interrupt. The line value to be programmed
+depends on the timings parameters. Refer to Figure 82.</Description>
+      <Offset>0x40</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>LIPOS[10:0]</Name>
+          <Description>Line Interrupt Position 
+These bits configure the line interrupt position</Description>
+          <EndBit>10</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>rw</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CPSR</Name>
+      <Description>LTDC Current Position Status Register
+This register defines the position of the line interrupt. The line value to be programmed
+depends on the timings parameters. Refer to Figure 82.</Description>
+      <Offset>0x44</Offset>
+      <ResetValue>0x00000000</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>CXPOS[15:0]</Name>
+          <Description>Current X Position 
+These bits return the current X position</Description>
+          <EndBit>31</EndBit>
+          <StartBit>16</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>CYPOS[15:0]</Name>
+          <Description>Current Y Position 
+These bits return the current Y position</Description>
+          <EndBit>15</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+    <Register>
+      <Name>CDSR</Name>
+      <Description>LTDC Current Display Status Register
+This register returns the status of the current display phase which is controlled by the
+HSYNC, VSYNC, and Horizontal/Vertical DE signals.
+Example: if the current display phase is the vertical synchronization, the VSYNCS bit is set
+(active high). If the current display phase is the horizontal synchronization, the HSYNCS bit
+is active high.</Description>
+      <Offset>0x48</Offset>
+      <ResetValue>0x0000000F</ResetValue>
+      <Access>Byte_HalfWord_Word</Access>
+      <BitFields>
+        <BitField>
+          <Name>HSYNCS</Name>
+          <Description>Horizontal Synchronization display Status 
+0: Active low
+1: Active high</Description>
+          <EndBit>3</EndBit>
+          <StartBit>3</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>VSYNCS</Name>
+          <Description>Vertical Synchronization display Status 
+0: Active low
+1: Active high</Description>
+          <EndBit>2</EndBit>
+          <StartBit>2</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>HDES</Name>
+          <Description>Horizontal Data Enable display Status 
+0: Active low
+1: Active high</Description>
+          <EndBit>1</EndBit>
+          <StartBit>1</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+        <BitField>
+          <Name>VDES</Name>
+          <Description>Vertical Data Enable display Status 
+0: Active low
+1: Active high</Description>
+          <EndBit>0</EndBit>
+          <StartBit>0</StartBit>
+          <Mutability>r</Mutability>
+        </BitField>
+      </BitFields>
+    </Register>
+    
+  </Registers>
+</Peripheral>
