@@ -28,7 +28,7 @@
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>UDEN[1:0]</Name>
+          <Name>UDEN</Name>
           <Description>Under-drive enable in stop mode 
 These bits are set by software. They allow to achieve a lower power consumption in Stop
 mode but with a longer wakeup time.
@@ -72,7 +72,7 @@ set before setting the ODSWEN bit.
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>VOS[1:0]</Name>
+          <Name>VOS</Name>
           <Description>Regulator voltage scaling output selection 
 These bits control the main internal voltage regulator output voltage to achieve a trade-off
 between performance and power consumption when the device does not operate at the
@@ -146,7 +146,7 @@ bit must be set to enable write access to these registers.
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>PLS[2:0]</Name>
+          <Name>PLS</Name>
           <Description>PVD level selection 
 These bits are written by software to select the voltage threshold detected by the Power
 Voltage Detector
@@ -225,7 +225,7 @@ This bit is set and cleared by software. It works together with the PDDS bit.
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>UDRDY[1:0]</Name>
+          <Name>UDRDY</Name>
           <Description>Under-drive ready flag 
 These bits are set by hardware when the Under-drive mode is enabled in Stop mode and
 cleared by programming them to 1. 

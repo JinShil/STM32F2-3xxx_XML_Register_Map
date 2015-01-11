@@ -17,7 +17,7 @@
 -->
 <Peripheral>
   <Name>DMA2D</Name>
-  <Description>Chrom-Art Accelerator™ controller</Description>
+  <Description>Chrom-Art Accelerator controller</Description>
   <Offset>0x00009000</Offset>
   <Registers>
     <Register>
@@ -913,7 +913,7 @@ transfers are disabled. Once the transfer has started, they are read-only.</Desc
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>LW[15:0]</Name>
+          <Name>LW</Name>
           <Description>Line watermark 
 These bits allow to configure the line watermark for interrupt generation.
 An interrupt is raised when the last pixel of the watermarked line has been transferred.
