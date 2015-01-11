@@ -449,7 +449,7 @@ Set and cleared by hardware to indicate which clock source is used as the system
 11: not applicable</Description>
           <EndBit>3</EndBit>
           <StartBit>2</StartBit>
-          <Mutability>rw</Mutability>
+          <Mutability>r</Mutability>
         </BitField>
         <BitField>
           <Name>SW</Name>
