@@ -201,7 +201,7 @@ This bit is set and cleared by software.
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>DRW[2:0]</Name>
+          <Name>DRW</Name>
           <Description>Dither Red Width 
 These bits return the Dither Red Bits</Description>
           <EndBit>14</EndBit>
@@ -209,7 +209,7 @@ These bits return the Dither Red Bits</Description>
           <Mutability>r</Mutability>
         </BitField>
         <BitField>
-          <Name>DGW[2:0]</Name>
+          <Name>DGW</Name>
           <Description>Dither Green Width 
 These bits return the Dither Green Bits</Description>
           <EndBit>10</EndBit>
@@ -217,7 +217,7 @@ These bits return the Dither Green Bits</Description>
           <Mutability>r</Mutability>
         </BitField>
         <BitField>
-          <Name>DBW[2:0]</Name>
+          <Name>DBW</Name>
           <Description>Dither Blue Width 
 These bits return the Dither Blue Bits</Description>
           <EndBit>6</EndBit>
@@ -283,7 +283,7 @@ This register defines the background color (RGB888).</Description>
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>BCRED[7:0]</Name>
+          <Name>BCRED</Name>
           <Description>Background Color Red value 
 These bits configure the background red value</Description>
           <EndBit>23</EndBit>
@@ -291,7 +291,7 @@ These bits configure the background red value</Description>
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>BCGREEN[7:0]</Name>
+          <Name>BCGREEN</Name>
           <Description>Background Color Green value 
 These bits configure the background green value</Description>
           <EndBit>15</EndBit>
@@ -299,7 +299,7 @@ These bits configure the background green value</Description>
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>BCBLUE[7:0]</Name>
+          <Name>BCBLUE</Name>
           <Description>Background Color Blue value 
 These bits configure the background blue value</Description>
           <EndBit>7</EndBit>
@@ -466,7 +466,7 @@ depends on the timings parameters. Refer to Figure 82.</Description>
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>LIPOS[10:0]</Name>
+          <Name>LIPOS</Name>
           <Description>Line Interrupt Position 
 These bits configure the line interrupt position</Description>
           <EndBit>10</EndBit>
@@ -486,7 +486,7 @@ depends on the timings parameters. Refer to Figure 82.</Description>
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>CXPOS[15:0]</Name>
+          <Name>CXPOS</Name>
           <Description>Current X Position 
 These bits return the current X position</Description>
           <EndBit>31</EndBit>
@@ -494,7 +494,7 @@ These bits return the current X position</Description>
           <Mutability>r</Mutability>
         </BitField>
         <BitField>
-          <Name>CYPOS[15:0]</Name>
+          <Name>CYPOS</Name>
           <Description>Current Y Position 
 These bits return the current Y position</Description>
           <EndBit>15</EndBit>
@@ -866,7 +866,7 @@ format 8888 (ARGB).</Description>
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>PF[2:0]</Name>
+          <Name>PF</Name>
           <Description>Pixel Format 
 These bits configures the Pixel format
 000: ARGB8888
@@ -895,7 +895,7 @@ format 8888 (ARGB).</Description>
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>PF[2:0]</Name>
+          <Name>PF</Name>
           <Description>Pixel Format 
 These bits configures the Pixel format
 000: ARGB8888
