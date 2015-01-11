@@ -139,7 +139,7 @@ bit cannot be reset if the HSE oscillator is used directly or indirectly as the 
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>HSICAL[7:0]</Name>
+          <Name>HSICAL</Name>
           <Description>Internal high-speed clock calibration 
 These bits are initialized automatically at startup.</Description>
           <EndBit>15</EndBit>
@@ -147,7 +147,7 @@ These bits are initialized automatically at startup.</Description>
           <Mutability>r</Mutability>
         </BitField>
         <BitField>
-          <Name>HSITRIM[4:0]</Name>
+          <Name>HSITRIM</Name>
           <Description>Internal high-speed clock trimming 
 These bits provide an additional user-programmable trimming value that is added to the
 HSICAL[7:0] bits. It can be programmed to adjust to variations in voltage and temperature
@@ -298,7 +298,7 @@ VCO input frequency = PLL input clock frequency / PLLM with 2 ≤ PLLM ≤ 63
       <Access>Byte_HalfWord_Word</Access>
       <BitFields>
         <BitField>
-          <Name>MCO2[1:0]</Name>
+          <Name>MCO2</Name>
           <Description>Microcontroller clock output 2 
 Set and cleared by software. Clock source selection may generate glitches on MCO2. It is
 highly recommended to configure these bits only after reset before enabling the external
@@ -3024,7 +3024,7 @@ This bit is set and cleared by software.
           <Mutability>rw</Mutability>
         </BitField>
         <BitField>
-          <Name>RTCSEL[1:0]</Name>
+          <Name>RTCSEL</Name>
           <Description>RTC clock source selection 
 These bits are set by software to select the clock source for the RTC. Once the RTC clock
 source has been selected, it cannot be changed anymore unless the Backup domain is
