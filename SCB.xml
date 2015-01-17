@@ -19,7 +19,7 @@
   <Name>SCB</Name>
   <Description>The System control block (SCB) provides system implementation information, and system
 control. This includes configuration, control, and reporting of the system exceptions.</Description>
-  <Offset>0xE000ED00</Offset>
+  <Offset>0x0000ED00</Offset>
   <Registers>
   
     <Register>
